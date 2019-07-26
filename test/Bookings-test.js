@@ -24,13 +24,16 @@ chai.spy.on(DOMupdates, ['bookingsSample'], () => {});
   });
 
   it('should find all available rooms for today', () => {
-    let rooms = hotel.bookings.findAvailableRooms(hotel.today);
-    expect(hotel.bookings.findAvailableRooms(hotel.today)).to.deep.equal(rooms);
+    let rooms = hotel.bookings.findAvailableRooms('2019/07/26');
+    expect(hotel.bookings.findAvailableRooms('2019/07/26')).to.deep.equal(rooms);
   });
 
-  it('should find the total revenue for a given day', () => {
-    let revenue = hotel.bookings.findTotalRevenue(hotel.today);
-    expect(hotel.bookings.findAvailableRooms(hotel.today)).to.deep.equal(revenue);
+  it('should find the room revenue for a given day', () => {
+    expect(hotel.bookings.findRoomRevenue('2019/07/26')).to.deep.equal(495);
+  });
+
+  it('should find the room service revenue for a given day', () => {
+    expect(hotel.bookings.findRoomServiceRevenue('2019/07/26')).to.deep.equal(495);
   });
 
   it('should find the percentage occupancy, given a day', () => {
