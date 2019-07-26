@@ -27,33 +27,33 @@ class Hotel {
       let userRooms = this.findUserRooms(user.id);
       let customer = new Customer(user.id, user.name, userBookings, userRoomServices, userRooms);
       this.customers.push(customer);
-    })
+    });
   };
 
   findCustomerName(name) {
     return this.customers.find(customer => customer.name === name);
-  }
+  };
 
   findCustomerId(id) {
     return this.customers.find(customer => customer.id === id);
-  }
+  };
 
   addNewCustomer(name) {
     let newId = this.customers.length;
     let newCustomer = new Customer (newId, name)
-  }
+  };
 
   findUserBookings(id) {
     return this.bookingData.filter(booking => {
       return id === booking.userID
     });
-  }
+  };
 
   findUserRoomService(id) {
     return this.roomServiceData.filter(roomService => {
       return id === roomService.userID
     });
-  }
+  };
 
   findUserRooms(id) {
     let bookings = this.findUserBookings(id);
@@ -62,8 +62,8 @@ class Hotel {
         return bookings.roomNumber
         })
       return roomNumbers.includes(room.number)
-    })
-  }
+    });
+  };
 };
 
 export default Hotel;
