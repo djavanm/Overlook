@@ -2,6 +2,7 @@ import chai from 'chai';
 const expect = chai.expect;
 import Hotel from '../src/Hotel.js';
 import Customer from '../src/Customer.js';
+import Bookings from '../src/Bookings.js';
 import data from '../data/data.js'
 import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
@@ -29,6 +30,12 @@ describe('Hotel', () => {
   it('should be find the date for today', () => {
     hotel.createDate();
     expect(hotel.today).to.deep.equal('2019/07/26'); 
+  });
+
+  it('should be able instantiate Bookings and Customers upon opening', () => {
+    hotel.open();
+    expect(hotel.customers[0]).to.be.an.instanceof(Customer); 
+    expect(hotel.bookings).to.be.an.instanceof(Bookings); 
   });
 
   it('should find user booking data', () => {
