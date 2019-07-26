@@ -75,7 +75,8 @@ class Hotel {
 
   createBookings() {
     this.bookings = new Bookings(this.customers, this.bookingData, this.roomServiceData, this.roomData, this.today)
-  }
+  };
+  
 };
 
 export default Hotel;
