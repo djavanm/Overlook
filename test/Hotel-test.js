@@ -11,7 +11,6 @@ describe('Hotel', () => {
   let hotel;
   beforeEach(() => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomService);
-    console.log(hotel)
   });
 
   it('should be a function that instantiates a game', () => {
@@ -25,4 +24,25 @@ describe('Hotel', () => {
     expect(hotel.bookingData).to.deep.equal(data.bookings);
     expect(hotel.roomService).to.deep.equal(data.roomService);
   });
+
+  it('should be find the date for today', () => {
+    expect(hotel.today()).to.deep.equal('2019/07/26'); 
+  });
+
+  it('should instantiate all users as customers', () => {
+    expect(hotel.userData.length).to.equal(hotel.customers.length); 
+  });
+
+  it('should be able to return a specific customer via id', () => {
+    expect(hotel.findCustomerName('Matilde Larson')).to.deep.equal(hotel.customers[0]); 
+  });
+
+  it('should be able to return a specific customer via id', () => {
+    expect(hotel.findCustomerId(1)).to.deep.equal(hotel.customers[0]); 
+  });
+
+  it('should be able to add a new customer', () => {
+    expect(hotel.addNewCustomer('Djavan Munroe')).to.deep.equal(hotel.customers[hotel.customers.length-1]); 
+  });
+
 });
