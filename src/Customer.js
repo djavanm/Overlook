@@ -1,6 +1,10 @@
 class Customer {
-  constructor() {
-
+  constructor(id, name, userBookings, userRoomServices, userRooms) {
+    this.id = id;
+    this.name = name;
+    this.bookings = userBookings || [];
+    this.roomService = userRoomServices || [];
+    this.rooms = userRooms || [];
   }
 }
 

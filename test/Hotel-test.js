@@ -1,6 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Hotel from '../src/Hotel.js';
+import Customer from '../src/Customer.js';
 import data from '../data/data.js'
 import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
@@ -10,7 +11,7 @@ chai.spy.on(DOMupdates, ['sample'], () => {});
 describe('Hotel', () => {
   let hotel;
   beforeEach(() => {
-    hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomService);
+    hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
   });
 
   it('should be a function that instantiates a game', () => {
@@ -22,14 +23,16 @@ describe('Hotel', () => {
     expect(hotel.userData).to.deep.equal(data.users);
     expect(hotel.roomData).to.deep.equal(data.rooms);
     expect(hotel.bookingData).to.deep.equal(data.bookings);
-    expect(hotel.roomService).to.deep.equal(data.roomService);
+    expect(hotel.roomServiceData).to.deep.equal(data.roomServices);
   });
 
   it('should be find the date for today', () => {
-    expect(hotel.today()).to.deep.equal('2019/07/26'); 
+    hotel.createDate();
+    expect(hotel.today).to.deep.equal('2019/07/26'); 
   });
 
   it('should instantiate all users as customers', () => {
+    hotel.createCustomers();
     expect(hotel.userData.length).to.equal(hotel.customers.length); 
   });
 
