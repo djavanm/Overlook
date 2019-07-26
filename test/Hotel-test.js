@@ -32,7 +32,7 @@ describe('Hotel', () => {
   });
 
   it('should find user booking data', () => {
-    expect(hotel.findUserBooking(4)).to.deep.equal([{
+    expect(hotel.findUserBookings(4)).to.deep.equal([{
       userID: 4,
       date: "2019/10/19",
       roomNumber: 5

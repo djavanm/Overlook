@@ -22,21 +22,11 @@ class Hotel {
 
   createCustomers() {
     this.userData.forEach(user => {
-      let userBookings = this.bookingData.filter(booking => {
-        return user.id === booking.userID
-      });
-      let userRoomServices = this.roomServiceData.filter(roomService => {
-        return user.id === roomService.userID
-      });
-      let userRooms = this.roomData.filter(room => {
-        let roomNumbers = userBookings.map(bookings => {
-          return bookings.roomNumber
-          })
-        return roomNumbers.includes(room.number)
-      })
+      let userBookings = this.findUserBookings(user.id);
+      let userRoomServices = this.findUserRoomService(user.id);
+      let userRooms = this.findUserRooms(user.id);
       let customer = new Customer(user.id, user.name, userBookings, userRoomServices, userRooms);
       this.customers.push(customer);
-      // console.log(this.customers);
     })
   };
 
@@ -53,7 +43,7 @@ class Hotel {
     let newCustomer = new Customer (newId, name)
   }
 
-  findUserBooking(id) {
+  findUserBookings(id) {
     return this.bookingData.filter(booking => {
       return id === booking.userID
     });
@@ -66,7 +56,7 @@ class Hotel {
   }
 
   findUserRooms(id) {
-    let bookings = this.findUserBooking(id);
+    let bookings = this.findUserBookings(id);
     return this.roomData.filter(room => {
       let roomNumbers = bookings.map(bookings => {
         return bookings.roomNumber
@@ -76,4 +66,4 @@ class Hotel {
   }
 };
 
-  export default Hotel;
+export default Hotel;
