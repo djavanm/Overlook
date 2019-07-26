@@ -1,4 +1,5 @@
 import Customer from '../src/Customer.js';
+import Bookings from './Bookings.js';
 
 class Hotel {
   constructor(users, rooms, bookings, roomService) {
@@ -8,7 +9,14 @@ class Hotel {
     this.roomServiceData = roomService;
     this.today;
     this.customers = [];
+    this.bookings;
   }
+
+  open() {
+    this.createDate();
+    this.createCustomers();
+    this.createBookings();
+  };
 
   createDate() {
     let date = new Date(),
@@ -64,6 +72,10 @@ class Hotel {
       return roomNumbers.includes(room.number)
     });
   };
+
+  createBookings() {
+    this.bookings = new Bookings(this.customers, this.bookingData, this.roomServiceData, this.roomData, this.today)
+  }
 };
 
 export default Hotel;

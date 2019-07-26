@@ -14,7 +14,7 @@ describe('Hotel', () => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
   });
 
-  it('should be a function that instantiates a game', () => {
+  it('should be a function that instantiates a hotel', () => {
     expect(Hotel).to.be.a('function');
     expect(hotel).to.be.an.instanceof(Hotel);
   });
