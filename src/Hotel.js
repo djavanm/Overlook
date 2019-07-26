@@ -35,10 +35,45 @@ class Hotel {
         return roomNumbers.includes(room.number)
       })
       let customer = new Customer(user.id, user.name, userBookings, userRoomServices, userRooms);
-
       this.customers.push(customer);
+      // console.log(this.customers);
     })
   };
+
+  findCustomerName(name) {
+    return this.customers.find(customer => customer.name === name);
+  }
+
+  findCustomerId(id) {
+    return this.customers.find(customer => customer.id === id);
+  }
+
+  addNewCustomer(name) {
+    let newId = this.customers.length;
+    let newCustomer = new Customer (newId, name)
+  }
+
+  findUserBooking(id) {
+    return this.bookingData.filter(booking => {
+      return id === booking.userID
+    });
+  }
+
+  findUserRoomService(id) {
+    return this.roomServiceData.filter(roomService => {
+      return id === roomService.userID
+    });
+  }
+
+  findUserRooms(id) {
+    let bookings = this.findUserBooking(id);
+    return this.roomData.filter(room => {
+      let roomNumbers = bookings.map(bookings => {
+        return bookings.roomNumber
+        })
+      return roomNumbers.includes(room.number)
+    })
+  }
 };
 
   export default Hotel;

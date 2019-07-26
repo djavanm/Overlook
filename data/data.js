@@ -481,8 +481,7 @@ let data = {
     bedSize: "queen",
     numBeds: 2,
     costPerNight: 493.38
-    }
-    ],
+    }],
     bookings: [
     {
     userID: 4,
@@ -995,7 +994,8 @@ let data = {
       userID: 6,
       date: "2019/09/19",
       roomNumber: 48
-      }],
+      }
+    ],
       roomServices: [
         {
         userID: 14,
