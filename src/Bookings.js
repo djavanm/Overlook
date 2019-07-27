@@ -134,7 +134,6 @@ class Bookings {
     let customerBookingIndex = customer.bookings.findIndex(booking => booking.roomNumber === roomNum);
     customer.bookings.splice(customerBookingIndex, 1)
     this.checkRooms(customer);
-    console.log(customer);
   }
 
   checkRooms(customer) {
@@ -146,8 +145,13 @@ class Bookings {
       bookedRoomNums.forEach(number => {
         let room = this.rooms.find(room => room.Number === number);
         customer.rooms.push(room);
-      })
-    }
+      });
+    };
+  }
+
+  upgradeRoom(currentRoom, newRoom, date, customer) {
+    this.unbookRoom(currentRoom, date, customer);
+    this.bookRoom(newRoom, date, customer);
   }
   
 };

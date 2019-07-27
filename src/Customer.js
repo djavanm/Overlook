@@ -7,7 +7,6 @@ class Customer {
     this.rooms = userRooms;
   }
 
-
 }
 
 export default Customer;
