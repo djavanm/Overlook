@@ -22,4 +22,11 @@ chai.spy.on(DOMupdates, ['customerSample'], () => {});
     expect(hotel.customers[0]).to.be.an.instanceof(Customer);
   });
 
+  it.only('should be able to return total costs, given a date', () => {
+    hotel.currentCustomer = hotel.customers[4];
+    hotel.bookings.bookRoom(40, '2019/09/08', hotel.currentCustomer);
+    expect(hotel.customers[4].calculateBill('2019/09/08')).to.equal(359.21);
+    console.log(hotel.customers[4])
+  });
+
 });
