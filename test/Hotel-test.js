@@ -29,10 +29,10 @@ describe('Hotel', () => {
 
   it('should be find the date for today', () => {
     hotel.createDate();
-    expect(hotel.today).to.deep.equal('2019/07/26'); 
+    expect(hotel.today).to.deep.equal('2019/07/27'); 
   });
 
-  it('should be able instantiate Bookings and Customers upon opening', () => {
+  it('should be able to instantiate Bookings and Customers upon opening', () => {
     hotel.open();
     expect(hotel.customers[0]).to.be.an.instanceof(Customer); 
     expect(hotel.bookings).to.be.an.instanceof(Bookings); 

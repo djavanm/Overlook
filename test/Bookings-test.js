@@ -41,31 +41,29 @@ chai.spy.on(DOMupdates, ['bookingsSample'], () => {});
   });
 
   it('should find the percentage occupancy, given a day', () => {
-    let percentage = hotel.bookings.findOccupancyPercent(hotel.today);
-    expect(hotel.bookings.findOccupancyPercent(hotel.today)).to.deep.equal(percentage);
+    expect(hotel.bookings.findOccupancyPercent('2019/07/26')).to.deep.equal(4);
   });
 
   it('should find all the room service orders for a given day', () => {
-    let roomService = hotel.bookings.findRoomService(hotel.today);
-    expect(hotel.bookings.findRoomService(hotel.today)).to.deep.equal(roomService);
+    let roomService = hotel.bookings.findDailyRoomServiceOrders('2019/07/29');
+    expect(hotel.bookings.findDailyRoomServiceOrders('2019/07/29')).to.deep.equal(roomService);
   });
 
   it('should find all the room service orders for all time', () => {
-    let roomServiceAllTime = hotel.bookings.findTotalRoomService();
-    expect(hotel.bookings.findTotalRoomService()).to.deep.equal(roomServiceAllTime);
+    expect(hotel.bookings.findTotalRoomServiceRevenue()).to.deep.equal(781);
   });
 
   it('should find the most popular day', () => {
     let mostBookings = hotel.bookings.findMostBooked();
     expect(hotel.bookings.findMostBooked()).to.deep.equal(mostBookings);
   });
-
+  
   it('should find the least popular day', () => {
     let leastBookings = hotel.bookings.findLeastBooked();
     expect(hotel.bookings.findLeastBooked()).to.deep.equal(leastBookings);
   });
 
-  it('should find all of the hotel food options', () => {
+  it.only('should find all of the hotel food options', () => {
     let foodOptions = hotel.bookings.findFoodOptions();
     expect(hotel.bookings.findFoodOptions()).to.deep.equal(foodOptions);
   });
