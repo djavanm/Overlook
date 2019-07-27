@@ -45,6 +45,20 @@ class Customer {
       return roomCosts.reduce((total, cost) => {
         return total += cost;
       }, 0)
+    } else {
+      return 0;
+    }
+  }
+
+  calculateAllRoomService() {
+    if(this.roomService.length > 0) {
+      let costs = this.roomService.reduce((totalCost, order) => {
+          totalCost += order.totalCost;
+        return totalCost;
+      }, 0)
+      return parseFloat(costs.toFixed(2));
+    } else {
+      return 0;
     }
   }
   

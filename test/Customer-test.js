@@ -35,4 +35,8 @@ chai.spy.on(DOMupdates, ['customerSample'], () => {});
     expect(costs).to.equal(702.75);
   })
 
+  it('should be able to calculate all room service orders for all time', () => {
+    
+  })
+
 });

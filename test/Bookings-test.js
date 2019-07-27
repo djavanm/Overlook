@@ -74,7 +74,7 @@ chai.spy.on(DOMupdates, ['bookingsSample'], () => {});
     expect(hotel.currentCustomer.rooms.length).to.equal(0);
     hotel.bookings.bookRoom(25, '2019/07/29', hotel.currentCustomer);
     expect(hotel.customers[0].rooms.length).to.equal(1);
-    expect(hotel.customers[0].bookings.length).to.deep.equal(1)
+    expect(hotel.customers[0].bookings.length).to.deep.equal(1);
   });
 
   it('should be able cancel a booking', () => {
