@@ -36,7 +36,9 @@ chai.spy.on(DOMupdates, ['customerSample'], () => {});
   })
 
   it('should be able to calculate all room service orders for all time', () => {
-    
+    hotel.currentCustomer = hotel.customers[11];
+    let costs = hotel.currentCustomer.calculateAllRoomService();
+    expect(costs).to.equal(12.32)
   })
 
 });
