@@ -87,11 +87,12 @@ chai.spy.on(DOMupdates, ['bookingsSample'], () => {});
   });
 
   it('should be able to upgrade a booking', () => {
-    hotel.currentCustomer = hotel.customers[3];
-    expect(hotel.customers[3].rooms.length).to.equal(1);
-    expect(hotel.customers[3].bookings.length).to.equal(1);
-    hotel.bookings.upgradeRoom(7, 40, '2019/10/19', hotel.currentCustomer);
-    expect(hotel.customers[3].rooms.length).to.equal(1);
-    expect(hotel.customers[3].bookings.length).to.equal(1);
+    hotel.currentCustomer = hotel.customers[8];
+    expect(hotel.customers[8].rooms.length).to.equal(1);
+    expect(hotel.customers[8].bookings.length).to.equal(1);
+    hotel.bookings.upgradeRoom(7, 40, '2019/09/01', hotel.currentCustomer);
+    expect(hotel.customers[8].rooms.length).to.equal(1);
+    expect(hotel.customers[8].bookings.length).to.equal(1);
+    expect(hotel.currentCustomer.rooms[0].number).to.equal(40);
   });
 });

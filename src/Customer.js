@@ -35,6 +35,19 @@ class Customer {
         return 0;
       }
   }
+
+  calculateAllBookings() {
+    if(this.bookings.length > 0) {
+      let roomNums = this.bookings.map(booking => booking.roomNumber);
+      let roomCosts = roomNums.map(number => {
+        return this.rooms.find(room => room.number === number).costPerNight;
+      });
+      return roomCosts.reduce((total, cost) => {
+        return total += cost;
+      }, 0)
+    }
+  }
+  
 }
 
 
