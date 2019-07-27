@@ -1005,7 +1005,7 @@ let data = {
         },
         {
         userID: 100,
-        date: "2019/10/18",
+        date: "2019/07/29",
         food: "Rustic Cotton Sandwich",
         totalCost: 17.33
         },

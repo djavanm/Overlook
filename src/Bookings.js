@@ -25,9 +25,14 @@ class Bookings {
   }
 
   findRoomServiceRevenue(day) {
-    
-  }
+    return this.roomService.filter(order => order.date === day).reduce((totalAmount, order) => {
+      return totalAmount += order.totalCost;
+    }, 0)
+  };
 
+  findDayRevenue(day) {
+    return this.findRoomRevenue(day) + this.findRoomServiceRevenue(day);
+  }
 };
 
 export default Bookings;

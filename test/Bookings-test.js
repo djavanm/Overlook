@@ -33,7 +33,11 @@ chai.spy.on(DOMupdates, ['bookingsSample'], () => {});
   });
 
   it('should find the room service revenue for a given day', () => {
-    expect(hotel.bookings.findRoomServiceRevenue('2019/07/26')).to.deep.equal(495);
+    expect(hotel.bookings.findRoomServiceRevenue('2019/07/29')).to.deep.equal(32.23);
+  });
+
+  it('should find the total revenue for a given day', () => {
+    expect(hotel.bookings.findDayRevenue('2019/07/26')).to.deep.equal(495);
   });
 
   it('should find the percentage occupancy, given a day', () => {
