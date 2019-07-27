@@ -41,4 +41,12 @@ chai.spy.on(DOMupdates, ['customerSample'], () => {});
     expect(costs).to.equal(12.32)
   })
 
+  it('should be able to calculate all charges for all time', () => {
+    hotel.currentCustomer = hotel.customers[12];
+    hotel.bookings.bookRoom(45, '2019/09/09', hotel.currentCustomer);
+    hotel.bookings.bookRoom(2, '2019/09/10', hotel.currentCustomer);
+    let costs = hotel.currentCustomer.calculateAllCosts();
+    expect(costs).to.equal(894.7)
+  })
+
 });

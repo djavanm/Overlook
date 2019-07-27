@@ -61,6 +61,11 @@ class Customer {
       return 0;
     }
   }
+
+  calculateAllCosts() {
+    let costs = this.calculateAllBookings() + this.calculateAllRoomService();
+    return parseFloat(costs.toFixed(2));
+  }
   
 }
 
