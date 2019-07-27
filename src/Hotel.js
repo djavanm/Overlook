@@ -10,6 +10,7 @@ class Hotel {
     this.today;
     this.customers = [];
     this.bookings;
+    this.currentCustomer;
   }
 
   open() {

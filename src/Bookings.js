@@ -113,6 +113,24 @@ class Bookings {
       return foodOptions;
     }, [])
   }
+
+  bookRoom(roomNum, date, customer) {
+    let availableRooms = this.findAvailableRooms(date).map(room => room.number);
+    if(availableRooms.includes(roomNum)) {
+      let newBooking = {
+        'userID': customer.id,
+        'date': date,
+        'roomNumber': roomNum
+      };
+      customer.rooms.push(this.rooms.find(room => room.number === roomNum))
+      customer.bookings.push(newBooking);
+      this.bookings.push(newBooking);
+    };
+  }
+
+  unbookRoom(roomNum, date, customer) {
+    console.log(customer)
+  }
   
 };
 

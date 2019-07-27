@@ -6,6 +6,8 @@ class Customer {
     this.roomService = userRoomServices;
     this.rooms = userRooms;
   }
+
+
 }
 
 export default Customer;

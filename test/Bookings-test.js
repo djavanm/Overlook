@@ -63,9 +63,24 @@ chai.spy.on(DOMupdates, ['bookingsSample'], () => {});
     expect(hotel.bookings.findLeastBooked()).to.deep.equal(leastBookings);
   });
 
-  it.only('should find all of the hotel food options', () => {
+  it('should find all of the hotel food options', () => {
     let foodOptions = hotel.bookings.findFoodOptions();
     expect(hotel.bookings.findFoodOptions()).to.deep.equal(foodOptions);
+  });
+
+  it('should be able to book a new room', () => {
+    hotel.currentCustomer = hotel.customers[0];
+    expect(hotel.customers[0].rooms.length).to.equal(0);
+    expect(hotel.currentCustomer.rooms.length).to.equal(0);
+    hotel.bookings.bookRoom(25, '2019/07/29', hotel.currentCustomer);
+    expect(hotel.customers[0].rooms.length).to.equal(1);
+    expect(hotel.customers[0].bookings.length).to.deep.equal(1)
+  });
+
+  it.only('should be able cancel a booking', () => {
+    hotel.currentCustomer = hotel.customers[3];
+    expect(hotel.customers[0].rooms.length).to.equal(0);
+    hotel.bookings.unbookRoom(5, '2019/10/19', hotel.currentCustomer);
   });
   
 });
