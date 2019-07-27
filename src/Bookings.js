@@ -129,7 +129,25 @@ class Bookings {
   }
 
   unbookRoom(roomNum, date, customer) {
-    console.log(customer)
+    let bookingIndex = this.bookings.findIndex(booking => booking.roomNumber === roomNum && booking.date === date);
+    this.bookings.splice(bookingIndex, 1);
+    let customerBookingIndex = customer.bookings.findIndex(booking => booking.roomNumber === roomNum);
+    customer.bookings.splice(customerBookingIndex, 1)
+    this.checkRooms(customer);
+    console.log(customer);
+  }
+
+  checkRooms(customer) {
+    if(customer.bookings.length === 0) {
+      customer.rooms = [];
+    } else {
+      customer.rooms = [];
+      let bookedRoomNums = customer.bookings.map(booking => booking.roomNumber);
+      bookedRoomNums.forEach(number => {
+        let room = this.rooms.find(room => room.Number === number);
+        customer.rooms.push(room);
+      })
+    }
   }
   
 };
