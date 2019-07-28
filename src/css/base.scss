@@ -1,6 +1,8 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import '_variables';
 
 body {
-  background-color: $primary-background;
+  background-color: $light-accent;
+  font-family: $font;
+  font-size: 49px;
+  height: 100vh;
 }
