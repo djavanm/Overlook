@@ -15,3 +15,5 @@ Promise.all([
   .then(data => hotel.open())
   .then(data => console.log(hotel));
 
+
+  

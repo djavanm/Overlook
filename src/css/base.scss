@@ -1,18 +1,19 @@
 @import '_variables';
 
 body {
-  background-color: $mid-accent;
+  background-color: blanchedalmond;
   font-family: $font;
   font-size: 20px;
   height: 100vh;
+  color: $mid-accent;
 }
 
-.main__panel-tabs ul {
+.main__panel-container ul {
   margin: 0;
   padding: 0;
 }
 
-.main__panel-tabs ul li {
+.main__panel-container ul li {
   list-style-type: none;
   display: inline-block;
   background: $light-accent;
@@ -24,24 +25,24 @@ body {
   cursor: pointer;
 }
 
-.main__panel-tabs ul li:hover {
+.main__panel-container ul li:hover {
   color: #fff;
   background: $mid-accent;
 }
 
-.main__panel-tabs ul li:active {
+.main__panel-container ul li:active {
   color: #fff;
   background: $mid-accent;
 }
 
-.main__panel-tabs .panel {
+.main__panel-container .panel {
   display: none;
   background: $light-accent;
   padding: 20px;
   border-radius: 0px 0px 10px 10px;
 }
 
-.main__panel-tabs .panel.active {
+.main__panel-container .panel.active {
   display: block;
 }
 
