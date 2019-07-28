@@ -66,26 +66,7 @@ class Bookings {
       return highestBooking;
     }, {date: '', count: 0})
   }
-
-  findMostBooked() {
-    let bookingTotals = this.bookings.reduce((dayTotal, order) => {
-      if(!dayTotal[order.date]) {
-        dayTotal[order.date] = 0;
-      } 
-      dayTotal[order.date]++;
-      return dayTotal;
-    }, {})
-    return Object.keys(bookingTotals).reduce((highestBooking, date)=> {
-      if(bookingTotals[date] > highestBooking.count) {
-        highestBooking = {
-          'date': date,
-          'count': bookingTotals[date]
-        }
-      }
-      return highestBooking;
-    }, {date: '', count: 0})
-  };
-
+ 
   findLeastBooked() {
     let bookingTotals = this.bookings.reduce((dayTotal, order) => {
       if(!dayTotal[order.date]) {
@@ -129,7 +110,7 @@ class Bookings {
       customer.bookings.push(newBooking);
       this.bookings.push(newBooking);
     };
-  }
+  };
 
   unbookRoom(roomNum, date, customer) {
     let bookingIndex = this.bookings.findIndex(booking => booking.roomNumber === roomNum && booking.date === date);
@@ -137,7 +118,7 @@ class Bookings {
     let customerBookingIndex = customer.bookings.findIndex(booking => booking.roomNumber === roomNum);
     customer.bookings.splice(customerBookingIndex, 1)
     this.checkRooms(customer);
-  }
+  };
 
   checkRooms(customer) {
     if(customer.bookings.length === 0) {
@@ -150,12 +131,12 @@ class Bookings {
         customer.rooms.push(room);
       });
     };
-  }
+  };
 
   upgradeRoom(currentRoom, newRoom, date, customer) {
     this.unbookRoom(currentRoom, date, customer);
     this.bookRoom(newRoom, date, customer);
-  }
+  };
   
 };
 
