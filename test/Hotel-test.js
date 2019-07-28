@@ -13,6 +13,7 @@ describe('Hotel', () => {
   let hotel;
   beforeEach(() => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
+    hotel.open();
   });
 
   it('should be a function that instantiates a hotel', () => {
@@ -28,12 +29,10 @@ describe('Hotel', () => {
   });
 
   it('should be find the date for today', () => {
-    hotel.createDate();
     expect(hotel.today).to.deep.equal('2019/07/27'); 
   });
 
   it('should be able to instantiate Bookings and Customers upon opening', () => {
-    hotel.open();
     expect(hotel.customers[0]).to.be.an.instanceof(Customer); 
     expect(hotel.bookings).to.be.an.instanceof(Bookings); 
   });
@@ -67,7 +66,6 @@ describe('Hotel', () => {
   });
 
   it('should instantiate all users as customers', () => {
-    hotel.createCustomers();
     expect(hotel.userData.length).to.equal(hotel.customers.length); 
   });
 
@@ -81,7 +79,15 @@ describe('Hotel', () => {
   });
 
   it('should be able to add a new customer', () => {
-    expect(hotel.addNewCustomer('Djavan Munroe')).to.deep.equal(hotel.customers[hotel.customers.length-1]); 
+    hotel.addNewCustomer('Djavan Munroe');
+    let me = hotel.customers[hotel.customers.length-1]
+    expect(me).to.deep.equal(hotel.customers[hotel.customers.length-1]); 
+  });
+
+  it('should find all of the hotel food options, and give a menu property to each customer', () => {
+    hotel.currentCustomer = hotel.customers[0]
+    let hotelMenu = hotel.menu;
+    expect(hotel.currentCustomer.menu).to.deep.equal(hotelMenu);
   });
 
 });

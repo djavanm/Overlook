@@ -108,7 +108,10 @@ class Bookings {
   findFoodOptions() {
     return this.roomService.reduce((foodOptions, order) => {
       if(!foodOptions.includes(order.food)) {
-        foodOptions.push(order.food)
+        foodOptions.push({
+          food: order.food,
+          totalCost: order.totalCost
+        })
       }
       return foodOptions;
     }, [])

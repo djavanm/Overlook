@@ -63,11 +63,6 @@ chai.spy.on(DOMupdates, ['bookingsSample'], () => {});
     expect(hotel.bookings.findLeastBooked()).to.deep.equal(leastBookings);
   });
 
-  it('should find all of the hotel food options', () => {
-    let foodOptions = hotel.bookings.findFoodOptions();
-    expect(hotel.bookings.findFoodOptions()).to.deep.equal(foodOptions);
-  });
-
   it('should be able to book a new room', () => {
     hotel.currentCustomer = hotel.customers[0];
     expect(hotel.customers[0].rooms.length).to.equal(0);

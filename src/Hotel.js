@@ -11,10 +11,12 @@ class Hotel {
     this.customers = [];
     this.bookings;
     this.currentCustomer;
+    this.menu;
   }
 
   open() {
     this.createDate();
+    this.createMenu();
     this.createCustomers();
     this.createBookings();
   };
@@ -34,7 +36,8 @@ class Hotel {
       let userBookings = this.findUserBookings(user.id);
       let userRoomServices = this.findUserRoomService(user.id);
       let userRooms = this.findUserRooms(user.id);
-      let customer = new Customer(user.id, user.name, userBookings, userRoomServices, userRooms);
+      let userMenu = this.menu;
+      let customer = new Customer(user.id, user.name, userBookings, userRoomServices, userRooms, userMenu);
       this.customers.push(customer);
     });
   };
@@ -49,7 +52,8 @@ class Hotel {
 
   addNewCustomer(name) {
     let newId = this.customers.length;
-    let newCustomer = new Customer (newId, name)
+    let newCustomer = new Customer(newId, name, [], [], [], this.menu)
+    this.customers.push(newCustomer);
   };
 
   findUserBookings(id) {
@@ -77,6 +81,18 @@ class Hotel {
   createBookings() {
     this.bookings = new Bookings(this.customers, this.bookingData, this.roomServiceData, this.roomData, this.today)
   };
+
+  createMenu() {
+    this.menu = this.roomServiceData.reduce((foodOptions, order) => {
+      if(!foodOptions.includes(order.food)) {
+        foodOptions.push({
+          food: order.food,
+          totalCost: order.totalCost
+        })
+      }
+      return foodOptions;
+    }, [])
+  }
   
 };
 
