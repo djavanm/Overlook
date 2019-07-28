@@ -1,11 +1,12 @@
 class Customer {
-  constructor(id, name, userBookings = [], userRoomServices = [], userRooms = [], menu) {
+  constructor(id, name, userBookings = [], userRoomServices = [], userRooms = [], menu, date) {
     this.id = id;
     this.name = name;
     this.bookings = userBookings;
     this.roomService = userRoomServices;
     this.rooms = userRooms;
     this.menu = menu;
+    this.date = date;
   }
 
   calculateBill(date) {
@@ -66,6 +67,16 @@ class Customer {
   calculateAllCosts() {
     let costs = this.calculateAllBookings() + this.calculateAllRoomService();
     return parseFloat(costs.toFixed(2));
+  }
+
+  orderRoomService(food) {
+    let dish = this.menu.find(plate => plate.food === food);
+    this.roomService.push({
+      userID: this.id,
+      date: this.date,
+      food: dish.food,
+      totalCost: dish.totalCost
+    })
   }
   
 }

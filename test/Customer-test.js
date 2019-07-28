@@ -49,4 +49,11 @@ chai.spy.on(DOMupdates, ['customerSample'], () => {});
     expect(costs).to.equal(894.7)
   })
 
+  it('should be able to order room service', () => {
+    hotel.currentCustomer = hotel.customers[15];  
+    hotel.currentCustomer.orderRoomService('Generic Wooden Sandwich');
+    let newOrder = hotel.currentCustomer.roomService[1];
+    expect(newOrder.food).to.equal('Generic Wooden Sandwich');
+  })
+
 });

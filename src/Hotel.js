@@ -37,7 +37,7 @@ class Hotel {
       let userRoomServices = this.findUserRoomService(user.id);
       let userRooms = this.findUserRooms(user.id);
       let userMenu = this.menu;
-      let customer = new Customer(user.id, user.name, userBookings, userRoomServices, userRooms, userMenu);
+      let customer = new Customer(user.id, user.name, userBookings, userRoomServices, userRooms, userMenu, this.today);
       this.customers.push(customer);
     });
   };
@@ -52,7 +52,7 @@ class Hotel {
 
   addNewCustomer(name) {
     let newId = this.customers.length;
-    let newCustomer = new Customer(newId, name, [], [], [], this.menu)
+    let newCustomer = new Customer(newId, name, [], [], [], this.menu, this.today)
     this.customers.push(newCustomer);
   };
 
