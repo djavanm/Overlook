@@ -69,14 +69,19 @@ class Customer {
     return parseFloat(costs.toFixed(2));
   }
 
-  orderRoomService(food) {
+  orderRoomService(food, date) {
     let dish = this.menu.find(plate => plate.food === food);
     this.roomService.push({
       userID: this.id,
-      date: this.date,
+      date: date,
       food: dish.food,
       totalCost: dish.totalCost
     })
+  }
+
+  cancelRoomService(food, date) {
+   let plateIndex = this.roomService.findIndex(order => order.food === food && order.date === date);
+   this.roomService.splice(plateIndex, 1);
   }
   
 }

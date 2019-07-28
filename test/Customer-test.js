@@ -56,4 +56,12 @@ chai.spy.on(DOMupdates, ['customerSample'], () => {});
     expect(newOrder.food).to.equal('Generic Wooden Sandwich');
   })
 
+  it('should be able to cancel room service', () => {
+    hotel.currentCustomer = hotel.customers[16];  
+    hotel.currentCustomer.orderRoomService('Generic Wooden Sandwich', hotel.today);
+    expect(hotel.currentCustomer.roomService.length).to.equal(1);
+    hotel.currentCustomer.cancelRoomService('Generic Wooden Sandwich', hotel.today);
+    expect(hotel.currentCustomer.roomService.length).to.equal(0);
+  })
+
 });
