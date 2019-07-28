@@ -1,8 +1,47 @@
 @import '_variables';
 
 body {
-  background-color: $light-accent;
+  background-color: $mid-accent;
   font-family: $font;
-  font-size: 49px;
+  font-size: 20px;
   height: 100vh;
 }
+
+.main__panel-tabs ul {
+  margin: 0;
+  padding: 0;
+}
+
+.main__panel-tabs ul li {
+  list-style-type: none;
+  display: inline-block;
+  background: $light-accent;
+  margin: 0;
+  padding: 3px 10px;
+  border-radius: 10px 10px 0px 0px;
+  color: $mid-accent;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.main__panel-tabs ul li:hover {
+  color: #fff;
+  background: $mid-accent;
+}
+
+.main__panel-tabs ul li:active {
+  color: #fff;
+  background: $mid-accent;
+}
+
+.main__panel-tabs .panel {
+  display: none;
+  background: $light-accent;
+  padding: 20px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.main__panel-tabs .panel.active {
+  display: block;
+}
+
