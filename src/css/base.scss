@@ -1,11 +1,26 @@
 @import '_variables';
 
 body {
-  background-color: blanchedalmond;
+  background-color: $light-accent;
   font-family: $font;
   font-size: 20px;
   height: 100vh;
   color: $mid-accent;
+}
+
+.main__overlook {
+  display: flex;
+  flex-direction: row;
+}
+.header__nav {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+}
+.main__panel-container {
+  width: 80%;
 }
 
 .main__panel-container ul {
@@ -30,7 +45,7 @@ body {
   background: $mid-accent;
 }
 
-.main__panel-container ul li:active {
+.main__panel-container ul li.active {
   color: #fff;
   background: $mid-accent;
 }
@@ -38,11 +53,24 @@ body {
 .main__panel-container .panel {
   display: none;
   background: $light-accent;
-  padding: 20px;
+  padding: 30px;
   border-radius: 0px 0px 10px 10px;
 }
 
 .main__panel-container .panel.active {
   display: block;
+  background-color: $mid-accent;
+  color: white;
 }
 
+.header__search-input {
+  height: 20px;
+  width: 300px;
+  color: $mid-accent;
+  margin: 10px 0px;
+}
+
+.header__customer--name {
+  padding: 0;
+  margin: 0;
+}
