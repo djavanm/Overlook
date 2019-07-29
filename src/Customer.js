@@ -80,7 +80,7 @@ class Customer {
   }
 
   cancelRoomService(food, date) {
-   let plateIndex = this.roomService.findIndex(order => order.food === food && order.date === date);
+   let plateIndex = this.roomService.findIndex(order => order.food === food && order.date === date);h
    this.roomService.splice(plateIndex, 1);
   }
   

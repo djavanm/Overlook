@@ -49,6 +49,7 @@ $(document).ready(() => {
   }
 
   $('.search__list').on('click', '.search__customer', function() {
+    console.log(this);
     let currentName = this.innerText;
     hotel.currentCustomer = hotel.findCustomerName(currentName);
     DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name);

@@ -9,10 +9,13 @@ body {
 }
 .header__title,
 .header__current-customer {
-  display: inline-block;
+  display: block;
+  font-family: 'Baloo', cursive;
+  font-size: 4em;
 }
 .header__current-customer {
-  margin-left: 6%;
+  font-family: $font;
+  font-size: 1.5em;
 }
 
 .main__overlook {
@@ -55,6 +58,7 @@ body {
 .main__panel-container ul li.active {
   color: #fff;
   background: $mid-accent;
+  border: 1px solid $mid-accent;
 }
 
 .main__panel-container .panel {
@@ -66,8 +70,9 @@ body {
 
 .main__panel-container .panel.active {
   display: block;
-  background-color: $mid-accent;
-  color: white;
+  background: #FEF3E1;
+  color: $mid-accent;
+  border: 1px solid $mid-accent;
 }
 
 .header__search-input {

@@ -16,7 +16,7 @@ const DOMupdates = {
   displayCurrentCustomer(name) {
     $('.search__list').empty();
     $('.header__search-input').val('');
-    $('.header__current-customer').text('Current Customer: ' + name);
+    $('.header__current-customer').text(`Current Customer:  ${name}`);
     $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
     $('.main__panel-container .panel.active').slideUp(300)
     $('.customer-tab').addClass('active');
