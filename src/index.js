@@ -38,10 +38,12 @@ $(document).ready(() => {
 
   function customerSearch() {
       let searchText = $('.header__search-input').val().toLowerCase();
+      $('.header__add-customer').attr("disabled", false);
       let matches = hotel.customers.filter(customer => {
         return customer.name.toLowerCase().includes(searchText);
       })
       if(searchText.length === 0) {
+        $('.header__add-customer').attr("disabled", true);
         matches = [];
         $('.search__list').empty();
       }
@@ -50,6 +52,7 @@ $(document).ready(() => {
 
   $('.search__list').on('click', '.search__customer', function() {
     console.log(this);
+    $('.header__add-customer').attr("disabled", true);
     let currentName = this.innerText;
     hotel.currentCustomer = hotel.findCustomerName(currentName);
     DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name);

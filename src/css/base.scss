@@ -47,7 +47,7 @@ body {
   font-size: 1.8em;
   font-weight: 400;
   padding-left: 220px;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
   min-height: 90px;
 }
 
@@ -82,6 +82,7 @@ body {
   background: #F7F7F7;
   margin: 0;
   padding: 3px 10px;
+  border: 1px solid $mid-accent;
   border-radius: 10px 10px 0px 0px;
   color: $mid-accent;
   font-weight: 400;
@@ -130,4 +131,35 @@ body {
   color: white;
   background: $mid-accent;
   text-align: center;
+}
+.search__customer {
+  padding-left: 5px;
+}
+
+.search__customer:hover {
+  cursor: pointer;
+  background: $mid-accent;
+  color: white;
+}
+
+.header__add-customer {
+  height: 50px;
+  margin: 5px 0px;
+  padding: 5px 0px;
+  border: 1px solid $mid-accent;
+  background: #DEDEDE;
+  color: blue;
+  font-family: $font;
+  font-size: 20px;
+}
+
+.header__add-customer:disabled {
+  height: 50px;
+  margin: 5px 0px;
+  padding: 5px 0px;
+  border: none;
+  background: #DEDEDE;
+  color: white;
+  font-family: $font;
+  font-size: 20px;
 }
