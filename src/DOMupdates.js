@@ -18,11 +18,18 @@ const DOMupdates = {
     $('.header__search-input').val('');
     $('.header__current-customer').text('Current Customer: ' + name);
     $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
-    $('.main__panel-container .panel.active').slideUp(200)
+    $('.main__panel-container .panel.active').slideUp(300)
     $('.customer-tab').addClass('active');
-    $('#customer').slideDown(200, function() {
+    $('#customer').slideDown(300, function() {
       $(this).addClass('active')
     });
+  },
+
+  displayDailyStats(today, occupancy, serviceRevenue, roomRevenue) {
+    $('.main__article-day').text(`Date: ${today}`);
+    $('.main__article-occupancy').text(`Occupancy: ${occupancy}%`);
+    $('.main__article-service-charges').text(`Service Charges: $${serviceRevenue}`);
+    $('.main__article-room-charges').text(`Room Charges: $${roomRevenue}`);
   }
 }
 

@@ -1,5 +1,6 @@
 import Customer from '../src/Customer.js';
 import Bookings from './Bookings.js';
+import DOMupdates from './DOMupdates.js';
 
 class Hotel {
   constructor(users, rooms, bookings, roomService) {
@@ -19,7 +20,16 @@ class Hotel {
     this.createMenu();
     this.createCustomers();
     this.createBookings();
+    this.displayNewDay();
   };
+
+  displayNewDay() {
+    let currentOccupancy = this.bookings.findOccupancyPercent(this.today);
+    let currentServiceRevenue = this.bookings.findRoomServiceRevenue(this.today);
+    let currentRoomRevenue = this.bookings.findRoomRevenue(this.today);
+    let todayDate = this.today;
+    DOMupdates.displayDailyStats(todayDate, currentOccupancy, currentServiceRevenue, currentRoomRevenue);
+  }
 
   createDate() {
     let date = new Date(),
