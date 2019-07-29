@@ -7,6 +7,13 @@ body {
   height: 100vh;
   color: $mid-accent;
 }
+.header__title,
+.header__current-customer {
+  display: inline-block;
+}
+.header__current-customer {
+  margin-left: 6%;
+}
 
 .main__overlook {
   display: flex;

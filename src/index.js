@@ -48,8 +48,11 @@ $(document).ready(() => {
       DOMupdates.displaySearchResults(matches);
   }
 
-  $('.search__list').on('click', function() {
-    console.log('hi');
+  $('.search__list').on('click', '.search__customer', function() {
+    let currentName = this.innerText;
+    hotel.currentCustomer = hotel.findCustomerName(currentName);
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name);
+    console.log(hotel.currentCustomer);
   })
 });
 
