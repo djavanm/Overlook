@@ -15,13 +15,13 @@ body {
 .header__nav {
   border: 1px solid $mid-accent;
   min-height: 80vh;
-  background: #FEF3E1;
+  background: white;
   border-radius: 10px 10px 0px 0px;
 }
 
 .header__customer--name {
   border-bottom: 1px solid $mid-accent;
-  background: $light-accent;
+  background: #FDFDFD;
   border-radius: 10px 10px 0px 0px;
   margin-left: 5px;
   padding: 10px;
@@ -70,7 +70,7 @@ body {
 .main__panel-container ul li {
   list-style-type: none;
   display: inline-block;
-  background: $light-accent;
+  background: #F7F7F7;
   margin: 0;
   padding: 3px 10px;
   border-radius: 10px 10px 0px 0px;
@@ -93,7 +93,7 @@ body {
 
 .main__panel-container .panel {
   display: none;
-  background: $light-accent;
+  background: #FDFDFD;
   padding: 30px;
   border-radius: 0px 0px 10px 10px;
   min-height: 80vh;
@@ -101,14 +101,14 @@ body {
 
 .main__panel-container .panel.active {
   display: block;
-  background: #FEF3E1;
+  background: #FDFDFD;
   color: $mid-accent;
   border: 1px solid $mid-accent;
 }
 
 .header__search-input {
   color: $mid-accent;
-  width: 98%;
+  width: 96%;
   height: 40px;
   margin-top: 0px;
   padding: 5px;
