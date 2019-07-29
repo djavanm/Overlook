@@ -55,9 +55,16 @@ $(document).ready(() => {
     $('.header__add-customer').attr("disabled", true);
     let currentName = this.innerText;
     hotel.currentCustomer = hotel.findCustomerName(currentName);
-    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name);
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today));
     console.log(hotel.currentCustomer);
   })
+
+  $('.header__add-customer').on('click', function(){
+    $('.header__add-customer').attr("disabled", true);
+    let name = $('.header__search-input').val();
+    hotel.addNewCustomer(name);
+    DOMupdates.displayCurrentCustomer(name, hotel.currentCustomer.calculateBill(hotel.today));
+  });
 });
 
 
