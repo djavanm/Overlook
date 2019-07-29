@@ -1,12 +1,34 @@
 @import '_variables';
 
 body {
-  background-color: $light-accent;
+  background-color: #F7F7F7;
   font-family: $font;
   font-size: 20px;
   height: 100vh;
   color: $mid-accent;
 }
+
+.header__title {
+  margin-left: 215px;
+}
+
+.header__nav {
+  border: 1px solid $mid-accent;
+  min-height: 80vh;
+  background: #FEF3E1;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.header__customer--name {
+  border-bottom: 1px solid $mid-accent;
+  background: $light-accent;
+  border-radius: 10px 10px 0px 0px;
+  margin-left: 5px;
+  padding: 10px;
+  font-size: 1.4em;
+  
+}
+
 .header__title,
 .header__current-customer {
   display: block;
@@ -15,7 +37,9 @@ body {
 }
 .header__current-customer {
   font-family: $font;
-  font-size: 1.5em;
+  font-size: 1.8em;
+  font-weight: 400;
+  margin-left: 220px;
 }
 
 .main__overlook {
@@ -33,6 +57,11 @@ body {
   width: 80%;
 }
 
+.main__overlook {
+  width: 80%;
+  margin: auto;
+}
+
 .main__panel-container ul {
   margin: 0;
   padding: 0;
@@ -46,7 +75,8 @@ body {
   padding: 3px 10px;
   border-radius: 10px 10px 0px 0px;
   color: $mid-accent;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 1.3em;
   cursor: pointer;
 }
 
@@ -66,6 +96,7 @@ body {
   background: $light-accent;
   padding: 30px;
   border-radius: 0px 0px 10px 10px;
+  min-height: 80vh;
 }
 
 .main__panel-container .panel.active {
@@ -76,13 +107,18 @@ body {
 }
 
 .header__search-input {
-  height: 20px;
-  width: 300px;
   color: $mid-accent;
-  margin: 10px 0px;
+  width: 98%;
+  height: 40px;
+  margin-top: 0px;
+  padding: 5px;
+  font-size: 1em;
 }
 
 .header__customer--name {
-  padding: 0;
+  padding: 5px 0px 0px 10px;
   margin: 0;
+  color: white;
+  background: $mid-accent;
+  text-align: center;
 }
