@@ -15,6 +15,38 @@ body {
 
 table {
   display: inline-block;
+  border-collapse: collapse;
+  margin: 25px 0px;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  border: 2px solid $mid-accent;
+  overflow: hidden;
+  box-shadow: 0 0 20px $mid-accent;
+}
+
+thead tr {
+  background-color: $mid-accent;
+  color: #FFF;
+  text-align: left;
+  font-weight: 700;
+}
+
+th, 
+td {
+  padding: 12px, 15px;
+  text-align: center;
+  // width:50%;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+ 
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+  
 }
 
 // .header__title {
@@ -171,6 +203,7 @@ table {
   color: $mid-accent;
   font-family: $font;
   font-size: 20px;
+  box-shadow: 5px 5px 5px $mid-accent;
 }
 
 .header__add-customer:disabled {
@@ -181,4 +214,5 @@ table {
   color: white;
   font-family: $font;
   font-size: 20px;
+  box-shadow: none;
 }

@@ -24,7 +24,7 @@ const DOMupdates = {
     $('#customer').slideDown(300, function() {
       $('.main__customer-total-bill').text(`Today's charges: $${bill}`);
       $('.today-room-service').text(`Today's Room Service: $${todayRoomService}`);
-      $('.all-time-room-service').text(`Room Service All Time: $${allTimeRoomService}`);
+      $('.all-time-room-service').text(`Room Service All Time: $${allTimeRoomService}`)
       $(this).addClass('active');
     });
   },
