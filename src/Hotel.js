@@ -30,6 +30,8 @@ class Hotel {
     let todayDate = this.today;
     let availableRoomCount = this.bookings.findAvailableRooms(this.today).length;
     DOMupdates.displayDailyStats(todayDate, currentOccupancy, currentServiceRevenue, currentRoomRevenue, availableRoomCount);
+    let availableRooms = this.bookings.findAvailableRooms(this.today);
+    DOMupdates.dailyBookings(availableRooms, this.menu);
   }
 
   createDate() {

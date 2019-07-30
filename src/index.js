@@ -57,6 +57,7 @@ $(document).ready(() => {
     hotel.currentCustomer = hotel.findCustomerName(currentName);
     DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today));
     console.log(hotel.currentCustomer);
+    DOMupdates.displayBookings(hotel.currentCustomer);
   })
 
   $('.header__add-customer').on('click', function(){

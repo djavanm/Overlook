@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Hotel from './Hotel';
 
 const DOMupdates = {
   
@@ -33,6 +34,39 @@ const DOMupdates = {
     $('.main__article-service-charges').text(`Service Charges: $${serviceRevenue}`);
     $('.main__article-room-charges').text(`Room Charges: $${roomRevenue}`);
     $('.main__article-rooms-available').text(`Rooms Available: ${roomsAvailable}`);
+  },
+  displayBookings(customer) {
+    customer.bookings.forEach(booking => {
+      console.log(booking);
+      $('.table').append(`
+      <tr>
+        <td>${booking.date}</td>
+        <td>${booking.roomNumber}</td>
+      </tr>
+      `)
+    })
+  },
+  dailyBookings(availableRooms, menu) {
+    availableRooms.forEach(room => {
+      $('.available').append(`
+      <tr>
+        <td>${room.number}</td>
+        <td>${room.roomType}</td>
+        <td>${room.bidet}</td>
+        <td>${room.bedSize}</td>
+        <td>${room.numBeds}</td>
+        <td>${room.costPerNight}</td>
+      </tr>
+      `)
+    })
+    menu.forEach(dish => {
+      $('.menu').append(`
+      <tr>
+        <td>${dish.food}</td>
+        <td>${dish.totalCost}</td>
+      </tr>
+      `)
+    })
   }
 }
 
