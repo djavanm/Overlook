@@ -14,6 +14,10 @@ class Bookings {
     })
   };
 
+  findBookedRooms(day) {
+    return this.bookings.filter(booking => booking.date === day)
+    };
+
   findRoomRevenue(day) {
     let occupiedRoomNums = this.bookings.filter(booking => booking.date === day).map(bookings => bookings.roomNumber)
     let occupiedRooms = this.rooms.filter(room => {

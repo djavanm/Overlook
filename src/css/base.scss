@@ -18,7 +18,7 @@ table {
   border-collapse: collapse;
   margin: 25px 0px;
   font-size: 0.9em;
-  min-width: 400px;
+  min-width: 200px;
   border-radius: 5px 5px 0 0;
   border: 2px solid $mid-accent;
   overflow: hidden;
@@ -32,11 +32,16 @@ thead tr {
   font-weight: 700;
 }
 
-th, 
+
+th,
 td {
   padding: 12px, 15px;
   text-align: center;
-  // width:50%;
+  width:50%;
+}
+
+th {
+  padding: 10px;
 }
 
 table tbody tr {
@@ -190,7 +195,8 @@ table tbody tr:nth-of-type(even) {
   color: white;
 }
 
-.header__add-customer {
+.header__add-customer,
+.customer__book-room {
   height: 50px;
   margin: 5px 0px;
   text-align: center;
@@ -206,7 +212,8 @@ table tbody tr:nth-of-type(even) {
   box-shadow: 5px 5px 5px $mid-accent;
 }
 
-.header__add-customer:disabled {
+.header__add-customer:disabled,
+.customer__book-room:disabled {
   height: 50px;
   padding: 5px 0px;
   border: none;
@@ -215,4 +222,8 @@ table tbody tr:nth-of-type(even) {
   font-family: $font;
   font-size: 20px;
   box-shadow: none;
+}
+
+.customer__book-room {
+  width: 20%;
 }

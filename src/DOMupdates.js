@@ -37,9 +37,12 @@ const DOMupdates = {
     $('.main__article-room-charges').text(`Room Charges: $${roomRevenue}`);
     $('.main__article-rooms-available').text(`Rooms Available: ${roomsAvailable}`);
   },
-  displayBookings(customer) {
+  displayBookings(customer, booking) {
+    if(!booking) {
+      $('.customer__book-room').attr('disabled', false);
+    }
     customer.bookings.forEach(booking => {
-      $('.table').append(`
+      $('.customer-bookings-body').append(`
       <tr>
         <td>${booking.date}</td>
         <td>${booking.roomNumber}</td>
@@ -57,9 +60,9 @@ const DOMupdates = {
       `)
     })
   },
-  dailyBookings(availableRooms, menu, roomService) {
+  dailyBookings(availableRooms, menu, roomService, bookedRooms) {
     availableRooms.forEach(room => {
-      $('.available').append(`
+      $('.available-rooms-body').append(`
       <tr>
         <td>${room.number}</td>
         <td>${room.roomType}</td>
@@ -71,7 +74,7 @@ const DOMupdates = {
       `)
     })
     menu.forEach(dish => {
-      $('.menu').append(`
+      $('.today-menu-body').append(`
       <tr>
         <td>${dish.food}</td>
         <td>${dish.totalCost}</td>
@@ -79,12 +82,20 @@ const DOMupdates = {
       `)
     })
     roomService.forEach(order => {
-      $('.room-service-orders').append(`
+      $('.customer-orders-body').append(`
       <tr>
         <td>${order.userID}</td>
         <td>${order.date}</td>
         <td>${order.food}</td>
         <td>${order.totalCost}</td>
+      </tr>
+      `)
+    })
+    bookedRooms.forEach(booking => {
+      $('.all-bookings-body').append(`
+      <tr>
+        <td>${booking.roomNumber}</td>
+        <td>${booking.date}</td>
       </tr>
       `)
     })

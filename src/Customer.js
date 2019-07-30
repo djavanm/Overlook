@@ -83,6 +83,10 @@ class Customer {
    let plateIndex = this.roomService.findIndex(order => order.food === food && order.date === date);h
    this.roomService.splice(plateIndex, 1);
   }
+
+  findTodayBooking(day) {
+    return this.bookings.find(booking => booking.date === day);
+  }
   
 }
 

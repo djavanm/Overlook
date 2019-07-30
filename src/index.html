@@ -40,25 +40,56 @@
         main <br/>
       </article>
       <article id="orders" class="panel">
-            <table>
-                <thead class="menu">
+            <table class="today-menu-table">
+                <thead>
                   <tr>
                     <th>Today's Menu</td>
+                    <th>Today's Menu</td>
                   </tr>
+                  <tr>
+                      <th>Dish</td>
+                      <th>Cost</td>
+                    </tr>
+                  <tbody class="today-menu-body">
+
+                  </tbody>
                 </thead>
               </table>
-              <table>
-                  <thead class="room-service-orders">
+              <table class="room-service-table">
+                  <thead>
                     <tr>
-                      <th>Today's Room Service Orders</td>
+                      <th>Today's Room Service Orders</th>
+                      <th>Today's Room Service Orders</th> 
+                      <th>Today's Room Service Orders</th>
+                      <th>Today's Room Service Orders</th>
                     </tr>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Dish</th>
+                        <th>Cost</th>
+                     </tr>
+                    <tbody class="room-service-orders">
+
+                    </tbody>
                   </thead>
                 </table>
-                <table>
-                    <thead class="current-customer-orders">
+                <table class="customer-orders-table">
+                    <thead>
                       <tr>
-                        <th>Customer Orders</td>
+                        <th>Customer Orders</th>
+                        <th>Customer Orders</th>
+                        <th>Customer Orders</th>
+                        <th>Customer Orders</th>
                       </tr>
+                    <tr>
+                      <th>Customer Name</th>
+                      <th>Order Date</th>
+                      <th>Dish</th>
+                      <th>Cost</th>
+                    </tr> 
+                      <tbody class="customer-orders-body">
+                      </tbody>
                     </thead>
                   </table>
         orders <br/>
@@ -67,23 +98,41 @@
         orders <br/>
         </article>
         <article id="rooms" class="panel">
-            <table>
+            <table class="available-rooms-table">
                 <thead class="available">
                   <tr>
-                    <th>Available Rooms</td>
+                    <th>Available Rooms</th>
+                    <th>Available Rooms</th>
+                    <th>Available Rooms</th>
+                    <th>Available Rooms</th>
+                    <th>Available Rooms</th>
+                    <th>Available Rooms</th>
+                  </tr>
+                  <tr>
+                      <th>Room</th>
+                      <th>Room Type</th>
+                      <th>Bidet?</th>
+                      <th>Bed Size</th>
+                      <th>Beds</th>
+                      <th>Cost Per Night $</th>
                   </tr>
                 </thead>
+                <tbody class="available-rooms-body">
+                </tbody>
               </table>
-            <table class="table">
-              <thead >
-                <!-- <tr>
-                  <th>All Bookings</td>
-                </tr> -->
+            <table class="all-bookings-table">
+              <thead>
+                <tr>
+                  <th>All Bookings</th>
+                  <th>All Bookings</th>
+                </tr>
                 <tr>
                   <th>Date</th>
                   <th>Room Number</th>
                 </tr>
               </thead>
+                <tbody class="all-bookings-body">
+                </tbody>
             </table>
         rooms <br/>
         rooms <br/>
@@ -93,10 +142,16 @@
         rooms <br/>
         </article>
         <article id="customer" class="panel">
+        <section class="customer-today-bookings">
+          <p>Today's Itinerary</p>
+          <p class="today-booking">
+             <button class="customer__book-room" disabled="true">Book Room</button>
+          </p>
+        </section>
         <p class="main__customer-total-bill">Customer Bill</p>
         <p class ="today-room-service"> Today's Customer Orders</p>
         <p class ="all-time-room-service">Customer All Time Orders</p>
-        <table>
+        <table class="customer-bookings-table">
           <thead>
             <tr>
               <th>All Customer Bookings</th>
@@ -107,9 +162,10 @@
                 <th>Room Number</th>
               </tr>
           </thead>
-          <tbody class="table">
+          <tbody class="customer-bookings-body">
           </tbody>
         </table>
+        
         </article>
     </section>
     </main>
