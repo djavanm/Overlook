@@ -46,7 +46,7 @@ const DOMupdates = {
       `)
     })
   },
-  dailyBookings(availableRooms, menu) {
+  dailyBookings(availableRooms, menu, roomService) {
     availableRooms.forEach(room => {
       $('.available').append(`
       <tr>
@@ -64,6 +64,16 @@ const DOMupdates = {
       <tr>
         <td>${dish.food}</td>
         <td>${dish.totalCost}</td>
+      </tr>
+      `)
+    })
+    roomService.forEach(order => {
+      $('.room-service-orders').append(`
+      <tr>
+        <td>${order.userID}</td>
+        <td>${order.date}</td>
+        <td>${order.food}</td>
+        <td>${order.totalCost}</td>
       </tr>
       `)
     })
