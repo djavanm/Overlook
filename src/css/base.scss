@@ -227,3 +227,10 @@ table tbody tr:nth-of-type(even) {
 .customer__book-room {
   width: 20%;
 }
+
+.customer__booking-box {
+  height: 200px;
+  width: 200px;
+  border: 2px solid $mid-accent;
+  box-shadow: 5px 5px 5px $mid-accent;
+}

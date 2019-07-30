@@ -38,8 +38,14 @@ const DOMupdates = {
     $('.main__article-rooms-available').text(`Rooms Available: ${roomsAvailable}`);
   },
   displayBookings(customer, booking) {
+    console.log(booking);
     if(!booking) {
       $('.customer__book-room').attr('disabled', false);
+    }
+    if(booking) {
+      $('.customer__book-room').hide();
+      $('.customer__booking-box').show();
+      $('customer__booked-room').text(`Room Number: ${booking.roomNumber}`);
     }
     customer.bookings.forEach(booking => {
       $('.customer-bookings-body').append(`

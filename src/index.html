@@ -43,8 +43,7 @@
             <table class="today-menu-table">
                 <thead>
                   <tr>
-                    <th>Today's Menu</td>
-                    <th>Today's Menu</td>
+                    <th colspan="2">Today's Menu</th>
                   </tr>
                   <tr>
                       <th>Dish</td>
@@ -58,10 +57,7 @@
               <table class="room-service-table">
                   <thead>
                     <tr>
-                      <th>Today's Room Service Orders</th>
-                      <th>Today's Room Service Orders</th> 
-                      <th>Today's Room Service Orders</th>
-                      <th>Today's Room Service Orders</th>
+                      <th colspan="4">Today's Room Service Orders</th>
                     </tr>
                     <tr>
                         <th>Customer</th>
@@ -77,10 +73,7 @@
                 <table class="customer-orders-table">
                     <thead>
                       <tr>
-                        <th>Customer Orders</th>
-                        <th>Customer Orders</th>
-                        <th>Customer Orders</th>
-                        <th>Customer Orders</th>
+                        <th colspan="4">Customer Orders</th>
                       </tr>
                     <tr>
                       <th>Customer Name</th>
@@ -101,12 +94,7 @@
             <table class="available-rooms-table">
                 <thead class="available">
                   <tr>
-                    <th>Available Rooms</th>
-                    <th>Available Rooms</th>
-                    <th>Available Rooms</th>
-                    <th>Available Rooms</th>
-                    <th>Available Rooms</th>
-                    <th>Available Rooms</th>
+                    <th colspan="6">Available Rooms</th>
                   </tr>
                   <tr>
                       <th>Room</th>
@@ -123,8 +111,7 @@
             <table class="all-bookings-table">
               <thead>
                 <tr>
-                  <th>All Bookings</th>
-                  <th>All Bookings</th>
+                  <th colspan="2">All Bookings</th>
                 </tr>
                 <tr>
                   <th>Date</th>
@@ -144,6 +131,9 @@
         <article id="customer" class="panel">
         <section class="customer-today-bookings">
           <p>Today's Itinerary</p>
+          <div class="customer__booking-box">
+            <p class="customer__booked-room">Room: </p>
+          </div>
           <p class="today-booking">
              <button class="customer__book-room" disabled="true">Book Room</button>
           </p>
@@ -154,8 +144,7 @@
         <table class="customer-bookings-table">
           <thead>
             <tr>
-              <th>All Customer Bookings</th>
-              <th>All Customer Bookings</th>
+              <th colspan="2">All Customer Bookings</th>
             </tr>
             <tr>
                 <th>Date</th>
