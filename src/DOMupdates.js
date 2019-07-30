@@ -38,12 +38,31 @@ const DOMupdates = {
     $('.main__article-rooms-available').text(`Rooms Available: ${roomsAvailable}`);
   },
   displayBookings(customer, booking) {
+    $('.customer-bookings-body').empty()
     if(!booking) {
       $('.customer__book-room').show();
       $('.customer__book-room').attr('disabled', false);
       $('.customer__booking-box').hide();
-      $('.customer__fees-box').hide();
-      $('.customer-bookings-table').hide();
+      // $('.customer__fees-box').hide();
+      // $('.customer-bookings-table').hide();
+      customer.bookings.forEach(currentBooking => {
+        $('.customer-bookings-body').append(`
+        <tr class="table__room-number" data-room="${currentBooking.roomNumber}">
+          <td>${currentBooking.date}</td>
+          <td>${currentBooking.roomNumber}</td>
+        </tr>
+        `)
+      })
+      customer.roomService.forEach(order => {
+        $('.current-customer-orders').append(`
+        <tr>
+        <td>${customer.name}</td>
+        <td>${order.date}</td>
+        <td>${order.food}</td>
+        <td>${order.totalCost}</td>
+        </tr>
+        `)
+      })
     }
     if(booking) {
       $('.customer__fees-box').show();
@@ -53,11 +72,11 @@ const DOMupdates = {
       $('.customer__booked-name').text(`${customer.name}`);
       $('.customer__booked-date').text(`Date: ${booking.date}`);
       $('.customer__booked-room').text(`Room Number: ${booking.roomNumber}`);
-      customer.bookings.forEach(booking => {
+      customer.bookings.forEach(currentBooking => {
         $('.customer-bookings-body').append(`
-        <tr>
-          <td>${booking.date}</td>
-          <td>${booking.roomNumber}</td>
+        <tr class="table__room-number" data-room="${currentBooking.roomNumber}">
+          <td>${currentBooking.date}</td>
+          <td>${currentBooking.roomNumber}</td>
         </tr>
         `)
       })

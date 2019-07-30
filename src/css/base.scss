@@ -211,6 +211,10 @@ table tr:nth-of-type(even) {
   box-shadow: 5px 5px 5px $mid-accent;
 }
 
+.customer__book-room {
+  margin-right: 25px;
+}
+
 .header__add-customer:disabled,
 .customer__book-room:disabled {
   height: 50px;
