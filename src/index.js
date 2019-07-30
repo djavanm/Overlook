@@ -55,7 +55,7 @@ $(document).ready(() => {
     $('.header__add-customer').attr("disabled", true);
     let currentName = this.innerText;
     hotel.currentCustomer = hotel.findCustomerName(currentName);
-    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today));
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
     console.log(hotel.currentCustomer);
     DOMupdates.displayBookings(hotel.currentCustomer);
   })
@@ -64,7 +64,9 @@ $(document).ready(() => {
     $('.header__add-customer').attr("disabled", true);
     let name = $('.header__search-input').val();
     hotel.addNewCustomer(name);
-    DOMupdates.displayCurrentCustomer(name, hotel.currentCustomer.calculateBill(hotel.today));
+    console.log(hotel.currentCustomer.calculateRoomServiceCost(hotel.today))
+    console.log(hotel.currentCustomer.calculateAllRoomService())
+    DOMupdates.displayCurrentCustomer(name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
   });
 });
 

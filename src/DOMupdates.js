@@ -14,7 +14,7 @@ const DOMupdates = {
       $('.search__list').append(searchHtml);
     }
   },
-  displayCurrentCustomer(name, bill) {
+  displayCurrentCustomer(name, bill, todayRoomService, allTimeRoomService) {
     $('.search__list').empty();
     $('.header__search-input').val('');
     $('.header__current-customer').text(`Current Customer:  ${name}`);
@@ -22,7 +22,9 @@ const DOMupdates = {
     $('.main__panel-container .panel.active').hide();
     $('.customer-tab').addClass('active');
     $('#customer').slideDown(300, function() {
-      $('.main__customer-total-bill').text(`Today's charges: $${bill}`)
+      $('.main__customer-total-bill').text(`Today's charges: $${bill}`);
+      $('.today-room-service').text(`Today's Room Service: $${todayRoomService}`);
+      $('.all-time-room-service').text(`Room Service All Time: $${allTimeRoomService}`);
       $(this).addClass('active');
     });
   },
@@ -37,11 +39,20 @@ const DOMupdates = {
   },
   displayBookings(customer) {
     customer.bookings.forEach(booking => {
-      console.log(booking);
       $('.table').append(`
       <tr>
         <td>${booking.date}</td>
         <td>${booking.roomNumber}</td>
+      </tr>
+      `)
+    })
+    customer.roomService.forEach(order => {
+      $('.current-customer-orders').append(`
+      <tr>
+      <td>${customer.name}</td>
+      <td>${order.date}</td>
+      <td>${order.food}</td>
+      <td>${order.totalCost}</td>
       </tr>
       `)
     })
