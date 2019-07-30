@@ -13,6 +13,7 @@ class Hotel {
     this.bookings;
     this.currentCustomer;
     this.menu;
+    this.currentRoom;
   }
 
   open() {
@@ -66,9 +67,10 @@ class Hotel {
   };
 
   addNewCustomer(name) {
-    let newId = this.customers.length;
+    let newId = this.customers.length + 1;
     let newCustomer = new Customer(newId, name, [], [], [], this.menu, this.today)
     this.customers.push(newCustomer);
+    return this.customers[newId - 1];
   };
 
   findUserBookings(id) {

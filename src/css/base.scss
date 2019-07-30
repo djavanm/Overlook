@@ -271,9 +271,10 @@ table th {
 .rooms__container {
   display: flex;
   justify-content: center;
-  align-content: flex-start;
+  // align-content: flex-start;
 }
 
 .room__booking-box {
   height: 120px;
+  margin-top: 25px;
 }

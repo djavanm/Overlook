@@ -64,7 +64,7 @@ $(document).ready(() => {
   $('.header__add-customer').on('click', function(){
     $('.header__add-customer').attr("disabled", true);
     let name = $('.header__search-input').val();
-    hotel.addNewCustomer(name);
+    hotel.currentCustomer = hotel.addNewCustomer(name);
     DOMupdates.displayNewCustomer(name);
     DOMupdates.displayNewCustomerShowHide();
   });
@@ -81,10 +81,17 @@ $(document).ready(() => {
 
   $('.available-rooms-table').on('click', '.table__room-number', function() {
     let roomNumber = parseInt($(this).attr('data-room'));
-    let clickedRoom = hotel.bookings.findRoom(roomNumber);
-    DOMupdates.showBookRoomPrompt(clickedRoom);
-  })
+    hotel.currentRoom = hotel.bookings.findRoom(roomNumber);
+    DOMupdates.showBookRoomPrompt(hotel.currentRoom);
+  });
 
+  $('.room_booking-button').on('click', function() {
+    hotel.bookings.bookRoom(hotel.currentRoom.number, hotel.today, hotel.currentCustomer);
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+    let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
+    DOMupdates.displayBookings(hotel.currentCustomer, booking);
+    $('.room__booking-box').hide();
+  });
 
 });
 
