@@ -88,8 +88,6 @@ table tr:nth-of-type(even) {
   font-family: $font;
   font-size: 1.8em;
   font-weight: 700;
-  // padding-left: 220px;
-  // padding-bottom: 10px;
   min-height: 90px;
 }
 
@@ -195,7 +193,8 @@ table tr:nth-of-type(even) {
 
 .header__add-customer,
 .customer__book-room,
-.room_booking-button {
+.room_booking-button,
+.customer__unbook-room {
   height: 50px;
   margin: 5px 0px;
   text-align: center;
@@ -211,8 +210,13 @@ table tr:nth-of-type(even) {
   box-shadow: 5px 5px 5px $mid-accent;
 }
 
-.customer__book-room {
-  margin-right: 25px;
+.customer__book-room
+.customer__unbook-room {
+  margin-right: 45px;
+}
+
+.customer__unbook-room {
+  height: 70px;
 }
 
 .header__add-customer:disabled,
@@ -240,7 +244,8 @@ table tr:nth-of-type(even) {
 
 .customer__booking-box,
 .customer__fees-box,
-.room__booking-box {
+.room__booking-box,
+.customer__unbook-box {
   height: 220px;
   padding: 5px;
   margin-right: 50px;
@@ -281,4 +286,8 @@ table th {
 .room__booking-box {
   height: 120px;
   margin-top: 25px;
+}
+
+.customer__book-room {
+  margin-right: 50px;
 }

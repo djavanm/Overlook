@@ -14,6 +14,7 @@ class Hotel {
     this.currentCustomer;
     this.menu;
     this.currentRoom;
+    this.currentDate;
   }
 
   open() {

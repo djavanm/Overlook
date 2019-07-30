@@ -19,6 +19,7 @@ Promise.all([
 
 $(document).ready(() => {
   $('.room__booking-box').hide();
+  $('.customer__unbook-box').hide();
   $('.main__panel-container .main__panel-tabs li').on('click', function() {
     $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
     $(this).addClass('active')
@@ -93,6 +94,22 @@ $(document).ready(() => {
     $('.room__booking-box').hide();
   });
 
+  $('.customer-bookings-table').on('click', '.table__room-number', function() {
+    let roomNumber = parseInt($(this).attr('data-room'));
+    hotel.currentDate = parseInt($(this).attr('data-date'))
+    hotel.currentRoom = hotel.bookings.findRoom(roomNumber);
+    DOMupdates.showUnbookWarning(hotel.currentRoom)
+  });
+
+  $('.customer__unbook-room').on('click', function() {
+    hotel.bookings.unbookRoom(hotel.currentRoom.number, hotel.currentDate, hotel.currentCustomer);
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+    let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
+    DOMupdates.displayBookings(hotel.currentCustomer, booking);
+    $('.customer__unbook-box').hide();
+    console.log(hotel.currentCustomer);
+
+  });
 });
 
 

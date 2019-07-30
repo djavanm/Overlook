@@ -158,7 +158,6 @@ class Bookings {
   }
 
   findRoom(roomNum) {
-    console.log(roomNum)
     return this.rooms.find(room => room.number === roomNum)
   }
 };

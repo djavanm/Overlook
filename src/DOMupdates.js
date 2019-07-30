@@ -74,7 +74,7 @@ const DOMupdates = {
       $('.customer__booked-room').text(`Room Number: ${booking.roomNumber}`);
       customer.bookings.forEach(currentBooking => {
         $('.customer-bookings-body').append(`
-        <tr class="table__room-number" data-room="${currentBooking.roomNumber}">
+        <tr class="table__room-number" data-room="${currentBooking.roomNumber}" data-date="${currentBooking.date}">
           <td>${currentBooking.date}</td>
           <td>${currentBooking.roomNumber}</td>
         </tr>
@@ -176,6 +176,10 @@ const DOMupdates = {
   showBookRoomPrompt(room) {
     $('.room__booking-box').show();
     $('.book__room-num').text(`${room.number}`);
+  },
+  showUnbookWarning(room) {
+    $('.customer__unbook-box').show();
+    $('.unbook-warning').text(`Unbook Room: ${room.number}?`)
   }
 }
 export default DOMupdates;
