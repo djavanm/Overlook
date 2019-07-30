@@ -129,18 +129,22 @@
         rooms <br/>
         </article>
         <article id="customer" class="panel">
-        <section class="customer-today-bookings">
-          <p>Today's Itinerary</p>
+        <section class="customer__today-bookings">
           <div class="customer__booking-box">
-            <p class="customer__booked-room">Room: </p>
+          <p>Today's Itinerary</p>
+          <p class="customer__booked-name">Name:</p>
+          <p class="customer__booked-date">Date:</p>
+          <p class="customer__booked-room">Room: </p>
           </div>
           <p class="today-booking">
              <button class="customer__book-room" disabled="true">Book Room</button>
           </p>
+          <div class="customer__fees-box">
+            <p class="main__customer-total-bill">Customer Bill</p>
+            <p class ="today-room-service"> Today's Customer Orders</p>
+            <p class ="all-time-room-service">Customer All Time Orders</p>
+          </div>
         </section>
-        <p class="main__customer-total-bill">Customer Bill</p>
-        <p class ="today-room-service"> Today's Customer Orders</p>
-        <p class ="all-time-room-service">Customer All Time Orders</p>
         <table class="customer-bookings-table">
           <thead>
             <tr>
@@ -154,7 +158,6 @@
           <tbody class="customer-bookings-body">
           </tbody>
         </table>
-        
         </article>
     </section>
     </main>

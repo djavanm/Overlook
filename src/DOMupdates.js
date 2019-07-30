@@ -38,33 +38,37 @@ const DOMupdates = {
     $('.main__article-rooms-available').text(`Rooms Available: ${roomsAvailable}`);
   },
   displayBookings(customer, booking) {
-    console.log(booking);
     if(!booking) {
       $('.customer__book-room').attr('disabled', false);
+      $('.customer__booking-box').hide();
+      $('.customer__fees-box').hide();
+      $('.customer-bookings-table').hide();
     }
     if(booking) {
       $('.customer__book-room').hide();
       $('.customer__booking-box').show();
-      $('customer__booked-room').text(`Room Number: ${booking.roomNumber}`);
+      $('.customer__booked-name').text(`${customer.name}`);
+      $('.customer__booked-date').text(`Date: ${booking.date}`);
+      $('.customer__booked-room').text(`Room Number: ${booking.roomNumber}`);
+      customer.bookings.forEach(booking => {
+        $('.customer-bookings-body').append(`
+        <tr>
+          <td>${booking.date}</td>
+          <td>${booking.roomNumber}</td>
+        </tr>
+        `)
+      })
+      customer.roomService.forEach(order => {
+        $('.current-customer-orders').append(`
+        <tr>
+        <td>${customer.name}</td>
+        <td>${order.date}</td>
+        <td>${order.food}</td>
+        <td>${order.totalCost}</td>
+        </tr>
+        `)
+      })
     }
-    customer.bookings.forEach(booking => {
-      $('.customer-bookings-body').append(`
-      <tr>
-        <td>${booking.date}</td>
-        <td>${booking.roomNumber}</td>
-      </tr>
-      `)
-    })
-    customer.roomService.forEach(order => {
-      $('.current-customer-orders').append(`
-      <tr>
-      <td>${customer.name}</td>
-      <td>${order.date}</td>
-      <td>${order.food}</td>
-      <td>${order.totalCost}</td>
-      </tr>
-      `)
-    })
   },
   dailyBookings(availableRooms, menu, roomService, bookedRooms) {
     availableRooms.forEach(room => {
@@ -105,6 +109,20 @@ const DOMupdates = {
       </tr>
       `)
     })
+  },
+  displayNewCustomer(name) {
+    $('.search__list').empty();
+    $('.header__search-input').val('');
+    $('.header__current-customer').text(`Current Customer:  ${name}`);
+    $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
+    $('.main__panel-container .panel.active').hide();
+    $('.customer-tab').addClass('active');
+    $('#customer').slideDown(300, function() {
+      $('.main__customer-total-bill').text(`Today's charges: $${bill}`);
+      $('.today-room-service').text(`Today's Room Service: $${todayRoomService}`);
+      $('.all-time-room-service').text(`Room Service All Time: $${allTimeRoomService}`)
+      $(this).addClass('active');
+    });
   }
 }
 

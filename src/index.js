@@ -64,9 +64,12 @@ $(document).ready(() => {
     $('.header__add-customer').attr("disabled", true);
     let name = $('.header__search-input').val();
     hotel.addNewCustomer(name);
-    console.log(hotel.currentCustomer.calculateRoomServiceCost(hotel.today))
-    console.log(hotel.currentCustomer.calculateAllRoomService())
-    DOMupdates.displayCurrentCustomer(name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+    DOMupdates.displayNewCustomer(name);
+    DOMupdates.displayBookings(hotel.currentCustomer, undefined)
+  });
+
+  $('.customer__book-room').on('click', function() {
+    console.log(this);
   });
 });
 

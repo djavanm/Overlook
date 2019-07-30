@@ -225,12 +225,26 @@ table tbody tr:nth-of-type(even) {
 }
 
 .customer__book-room {
-  width: 20%;
+  width: 200px;
 }
 
-.customer__booking-box {
-  height: 200px;
+.customer__today-bookings {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.customer__booking-box,
+.customer__fees-box {
+  margin: 10px;
+  display: inline-block;
   width: 200px;
   border: 2px solid $mid-accent;
   box-shadow: 5px 5px 5px $mid-accent;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.customer__fees-box {
+  width: 300px;
 }
