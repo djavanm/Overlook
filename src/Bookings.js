@@ -141,7 +141,21 @@ class Bookings {
     this.unbookRoom(currentRoom, date, customer);
     this.bookRoom(newRoom, date, customer);
   };
-  
+
+  sortByType(prop, day) {
+    let rooms = this.findAvailableRooms(day);
+    if(prop === 'roomType' || prop === 'bedSize') {
+      return rooms.sort((a, b) => {
+        if(a[prop] < b[prop]) { 
+          return -1; 
+        }
+        if(a[prop] > b[prop]) { 
+          return 1 
+        }
+      })
+    }
+    return rooms.sort((a, b) => a[prop] - b[prop]);
+  }
 };
 
 export default Bookings;

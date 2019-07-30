@@ -65,12 +65,20 @@ $(document).ready(() => {
     let name = $('.header__search-input').val();
     hotel.addNewCustomer(name);
     DOMupdates.displayNewCustomer(name);
-    DOMupdates.displayBookings(hotel.currentCustomer, undefined)
+    DOMupdates.displayNewCustomerShowHide();
   });
 
   $('.customer__book-room').on('click', function() {
-    console.log(this);
+    DOMupdates.jumpToCustomerBooking();
   });
+
+  $(".room_header").on('click', function() {
+    let prop = $(this).attr('data-sort');
+    let newTable = hotel.bookings.sortByType(prop, hotel.today);
+    DOMupdates.appendSortedRooms(newTable);
+  });
+
+
 });
 
 

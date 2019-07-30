@@ -39,12 +39,15 @@ const DOMupdates = {
   },
   displayBookings(customer, booking) {
     if(!booking) {
+      $('.customer__book-room').show();
       $('.customer__book-room').attr('disabled', false);
       $('.customer__booking-box').hide();
       $('.customer__fees-box').hide();
       $('.customer-bookings-table').hide();
     }
     if(booking) {
+      $('.customer__fees-box').show();
+      $('.customer-bookings-table').show();
       $('.customer__book-room').hide();
       $('.customer__booking-box').show();
       $('.customer__booked-name').text(`${customer.name}`);
@@ -118,12 +121,38 @@ const DOMupdates = {
     $('.main__panel-container .panel.active').hide();
     $('.customer-tab').addClass('active');
     $('#customer').slideDown(300, function() {
-      $('.main__customer-total-bill').text(`Today's charges: $${bill}`);
-      $('.today-room-service').text(`Today's Room Service: $${todayRoomService}`);
-      $('.all-time-room-service').text(`Room Service All Time: $${allTimeRoomService}`)
       $(this).addClass('active');
     });
+  },
+  displayNewCustomerShowHide() {
+    $('.customer__book-room').show();
+    $('.customer__book-room').attr('disabled', false);
+    $('.customer__booking-box').hide();
+    $('.customer__fees-box').hide();
+    $('.customer-bookings-table').hide();
+  },
+  jumpToCustomerBooking() {
+    $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
+    $('.main__panel-container .panel.active').hide();
+    $('.rooms-tab').addClass('active');
+    $('#rooms').slideDown(300, function() {
+      $(this).addClass('active');
+    });
+  },
+  appendSortedRooms(rooms) {
+    $('.available-rooms-body').empty();
+    rooms.forEach(room => {
+      $('.available-rooms-body').append(`
+      <tr>
+        <td>${room.number}</td>
+        <td>${room.roomType}</td>
+        <td>${room.bidet}</td>
+        <td>${room.bedSize}</td>
+        <td>${room.numBeds}</td>
+        <td>${room.costPerNight}</td>
+      </tr>
+      `)
+    })
   }
 }
-
 export default DOMupdates;

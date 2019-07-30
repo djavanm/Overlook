@@ -91,18 +91,19 @@
         orders <br/>
         </article>
         <article id="rooms" class="panel">
+          <div class="rooms__container">
             <table class="available-rooms-table">
                 <thead class="available">
                   <tr>
-                    <th colspan="6">Available Rooms</th>
+                    <th colspan="6">Available Rooms Selection</th>
                   </tr>
                   <tr>
-                      <th>Room</th>
-                      <th>Room Type</th>
-                      <th>Bidet?</th>
-                      <th>Bed Size</th>
-                      <th>Beds</th>
-                      <th>Cost Per Night $</th>
+                      <th class="room_header" data-sort="number">Room</th>
+                      <th class="room_header" data-sort="roomType">Room Type</th>
+                      <th class="room_header" data-sort="bidet">Bidet?</th>
+                      <th class="room_header" data-sort="bedSize">Bed Size</th>
+                      <th class="room_header" data-sort="numBeds">Beds</th>
+                      <th class="room_header" data-sort="costPerNight">Cost Per Night $</th>
                   </tr>
                 </thead>
                 <tbody class="available-rooms-body">
@@ -111,7 +112,7 @@
             <table class="all-bookings-table">
               <thead>
                 <tr>
-                  <th colspan="2">All Bookings</th>
+                  <th colspan="2">Current Bookings</th>
                 </tr>
                 <tr>
                   <th>Date</th>
@@ -121,12 +122,7 @@
                 <tbody class="all-bookings-body">
                 </tbody>
             </table>
-        rooms <br/>
-        rooms <br/>
-        rooms <br/>
-        rooms <br/>
-        rooms <br/>
-        rooms <br/>
+            </div>
         </article>
         <article id="customer" class="panel">
         <section class="customer__today-bookings">
@@ -144,18 +140,18 @@
             <p class ="today-room-service"> Today's Customer Orders</p>
             <p class ="all-time-room-service">Customer All Time Orders</p>
           </div>
-        </section>
-        <table class="customer-bookings-table">
-          <thead>
-            <tr>
-              <th colspan="2">All Customer Bookings</th>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <th>Room Number</th>
+          <table class="customer-bookings-table">
+            <thead>
+              <tr>
+                <th colspan="2">All Customer Bookings</th>
               </tr>
-          </thead>
-          <tbody class="customer-bookings-body">
+              <tr>
+                  <th>Date</th>
+                  <th>Room Number</th>
+                </tr>
+            </thead>
+            <tbody class="customer-bookings-body">
+        </section>
           </tbody>
         </table>
         </article>
