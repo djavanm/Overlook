@@ -156,6 +156,11 @@ class Bookings {
     }
     return rooms.sort((a, b) => a[prop] - b[prop]);
   }
+
+  findRoom(roomNum) {
+    console.log(roomNum)
+    return this.rooms.find(room => room.number === roomNum)
+  }
 };
 
 export default Bookings;

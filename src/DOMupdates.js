@@ -76,7 +76,7 @@ const DOMupdates = {
   dailyBookings(availableRooms, menu, roomService, bookedRooms) {
     availableRooms.forEach(room => {
       $('.available-rooms-body').append(`
-      <tr>
+      <tr class="table__room-number" data-room="${room.number}">
         <td>${room.number}</td>
         <td>${room.roomType}</td>
         <td>${room.bidet}</td>
@@ -143,7 +143,7 @@ const DOMupdates = {
     $('.available-rooms-body').empty();
     rooms.forEach(room => {
       $('.available-rooms-body').append(`
-      <tr>
+      <tr class="table__room-number" data-room="${room.number}">
         <td>${room.number}</td>
         <td>${room.roomType}</td>
         <td>${room.bidet}</td>
@@ -153,6 +153,10 @@ const DOMupdates = {
       </tr>
       `)
     })
+  },
+  showBookRoomPrompt(room) {
+    $('.room__booking-box').show();
+    $('.book__room-num').text(`${room.number}`);
   }
 }
 export default DOMupdates;

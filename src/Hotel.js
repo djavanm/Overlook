@@ -33,7 +33,6 @@ class Hotel {
     let availableRooms = this.bookings.findAvailableRooms(this.today);
     let currentRoomService = this.bookings.findDailyRoomServiceOrders(this.today)
     let bookedRooms = this.bookings.findBookedRooms(this.today);
-    console.log(bookedRooms);
     DOMupdates.dailyBookings(availableRooms, this.menu, currentRoomService, bookedRooms);
   }
 

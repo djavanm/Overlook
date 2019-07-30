@@ -194,7 +194,8 @@ table tr:nth-of-type(even) {
 }
 
 .header__add-customer,
-.customer__book-room {
+.customer__book-room,
+.room_booking-button {
   height: 50px;
   margin: 5px 0px;
   text-align: center;
@@ -234,7 +235,8 @@ table tr:nth-of-type(even) {
 
 
 .customer__booking-box,
-.customer__fees-box {
+.customer__fees-box,
+.room__booking-box {
   height: 220px;
   padding: 5px;
   margin-right: 50px;
@@ -263,10 +265,15 @@ table tbody tr:hover {
 
 table th {
   background-color: $mid-accent;
+  cursor: pointer;
 }
 
 .rooms__container {
   display: flex;
   justify-content: center;
   align-content: flex-start;
+}
+
+.room__booking-box {
+  height: 120px;
 }
