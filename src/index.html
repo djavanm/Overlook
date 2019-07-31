@@ -32,6 +32,8 @@
         <p class="main__article-service-charges">Hotel Charges</p>
         <p class="main__article-room-charges">Hotel Bookings </p>
         <p class="main__article-rooms-available">Available Rooms </p>
+        <p class="main__most-rooms-booked">Date and Rooms</p>
+        <p class="main__least-rooms-booked">Date and Rooms</p>
       </article>
       <article id="orders" class="panel">
         <section class="orders__container">
@@ -53,43 +55,27 @@
                   </tbody>
                 </thead>
               </table>
-              <table class="room-service-table">
+              <table class="customer-orders-table">
                   <thead>
                     <tr>
-                      <th colspan="4">Today's Room Service Orders</th>
+                      <th colspan="4">Customer Orders</th>
                     </tr>
-                    <tr>
-                        <th>Customer</th>
-                        <th>Date</th>
-                        <th>Dish</th>
-                        <th>Cost</th>
-                     </tr>
-                    <tbody class="room-service-orders">
-
+                  <tr>
+                    <th>Customer ID</th>
+                    <th>Order Date</th>
+                    <th>Dish</th>
+                    <th>Cost</th>
+                  </tr> 
+                    <tbody class="customer-orders-body">
                     </tbody>
                   </thead>
                 </table>
-                <table class="customer-orders-table">
-                    <thead>
-                      <tr>
-                        <th colspan="4">Customer Orders</th>
-                      </tr>
-                    <tr>
-                      <th>Customer ID</th>
-                      <th>Order Date</th>
-                      <th>Dish</th>
-                      <th>Cost</th>
-                    </tr> 
-                      <tbody class="customer-orders-body">
-                      </tbody>
-                    </thead>
-                  </table>
-                  <div class="customer__search-box">
-                    <p>Search Customer Orders</p>
-                    <input class="customer__search-input" placeholder="YYYY/MM/DD">
-                    <button class="customer__search-button">Search</button>
-                  </div>
-                </section>
+                <div class="customer__search-box">
+                  <p>Search Customer Orders</p>
+                  <input class="customer__search-input" placeholder="YYYY/MM/DD">
+                  <button class="customer__search-button">Search</button>
+                </div>
+              </section>
         </article>
         <article id="rooms" class="panel">
           <div class="rooms__container">

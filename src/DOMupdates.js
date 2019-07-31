@@ -29,13 +29,16 @@ const DOMupdates = {
     });
   },
 
-  displayDailyStats(today, occupancy, serviceRevenue, roomRevenue, roomsAvailable) {
+  displayDailyStats(today, occupancy, serviceRevenue, roomRevenue, roomsAvailable, mostBooked, leastBooked) {
+    console.log(leastBooked);
     $('.header__date').text(`Date: ${today}`);
     $('.main__article-day').text(`Date: ${today}`);
     $('.main__article-occupancy').text(`Occupancy: ${occupancy}%`);
     $('.main__article-service-charges').text(`Service Charges: $${serviceRevenue}`);
     $('.main__article-room-charges').text(`Room Charges: $${roomRevenue}`);
     $('.main__article-rooms-available').text(`Rooms Available: ${roomsAvailable}`);
+    $('.main__most-rooms-booked').text(`Busiest Day: ${mostBooked.date} with ${mostBooked.count} reservations.`);
+    $('.main__least-rooms-booked').text(`Slowest Day: ${leastBooked.date} with ${leastBooked.count} reservations.`);
   },
   displayBookings(customer, booking) {
     $('.customer-bookings-body').empty()
