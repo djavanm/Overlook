@@ -7,6 +7,8 @@ class Customer {
     this.rooms = userRooms;
     this.menu = menu;
     this.date = date;
+    this.currentDish;
+    this.currentPrice;
   }
 
   calculateBill(date) {
@@ -87,6 +89,7 @@ class Customer {
   findTodayBooking(day) {
     return this.bookings.find(booking => booking.date === day);
   }
+
   
 }
 

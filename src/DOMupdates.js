@@ -107,9 +107,9 @@ const DOMupdates = {
     })
     menu.forEach(dish => {
       $('.today-menu-body').append(`
-      <tr>
+      <tr class="table__menu-row" data-dish="${dish.food}" data-price="${dish.totalCost}">
         <td>${dish.food}</td>
-        <td>${dish.totalCost}</td>
+        <td>$${dish.totalCost}</td>
       </tr>
       `)
     })
@@ -177,9 +177,33 @@ const DOMupdates = {
     $('.room__booking-box').show();
     $('.book__room-num').text(`${room.number}`);
   },
+  showUpgradeRoomPrompt(room) {
+    $('.room__upgrade-box').show();
+    $('.book__room-num').text(`${room.number}`);
+  }, 
   showUnbookWarning(room) {
     $('.customer__unbook-box').show();
     $('.unbook-warning').text(`Unbook Room: ${room.number}?`)
+  },
+  jumpToOrders() {
+    $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
+    $('.main__panel-container .panel.active').hide();
+    $('.orders-tab').addClass('active');
+    $('#orders').slideDown(300, function() {
+      $(this).addClass('active');
+    });
+  },
+  showFoodLabel(dish, price) {
+    $('.orders__food-box').show();
+    $('.orders__current-order').text(`Order a ${dish} for $${price}?`);
+  },
+  jumpToCustomerUpgradeBooking() {
+    $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
+    $('.main__panel-container .panel.active').hide();
+    $('.rooms-tab').addClass('active');
+    $('#rooms').slideDown(300, function() {
+      $(this).addClass('active');
+    });
   }
 }
 export default DOMupdates;

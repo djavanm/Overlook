@@ -20,6 +20,8 @@ Promise.all([
 $(document).ready(() => {
   $('.room__booking-box').hide();
   $('.customer__unbook-box').hide();
+  $('.orders__food-box').hide();
+  $('.room__upgrade-box').hide();
   $('.main__panel-container .main__panel-tabs li').on('click', function() {
     $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
     $(this).addClass('active')
@@ -83,7 +85,9 @@ $(document).ready(() => {
   $('.available-rooms-table').on('click', '.table__room-number', function() {
     let roomNumber = parseInt($(this).attr('data-room'));
     hotel.currentRoom = hotel.bookings.findRoom(roomNumber);
-    DOMupdates.showBookRoomPrompt(hotel.currentRoom);
+    let currentRoom = hotel.currentCustomer.findTodayBooking(hotel.today);
+    currentRoom ? DOMupdates.showUpgradeRoomPrompt(hotel.currentRoom) : DOMupdates.showBookRoomPrompt(hotel.currentRoom);
+    ;
   });
 
   $('.room_booking-button').on('click', function() {
@@ -107,9 +111,40 @@ $(document).ready(() => {
     let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
     DOMupdates.displayBookings(hotel.currentCustomer, booking);
     $('.customer__unbook-box').hide();
-    console.log(hotel.currentCustomer);
-
   });
+
+  $('.customer__order-room-service').on('click', function() {
+    DOMupdates.jumpToOrders();
+  })
+
+  $('.today-menu-table').on('click', '.table__menu-row', function() {
+    hotel.currentCustomer.currentDish = $(this).attr('data-dish');
+    hotel.currentCustomer.currentPrice = $(this).attr('data-price');
+    DOMupdates.showFoodLabel(hotel.currentCustomer.currentDish, hotel.currentCustomer.currentPrice)
+  })
+
+  $('.orders__food-button').on('click', function(){
+    hotel.currentCustomer.orderRoomService(hotel.currentCustomer.currentDish, hotel.today);
+    console.log('hi')
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+    let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
+    DOMupdates.displayBookings(hotel.currentCustomer, booking);
+    $('.customer__unbook-box').hide();
+    $('.orders__food-box').hide();
+  })
+
+  $('.customer__upgrade-room').on('click', function() {
+    DOMupdates.jumpToCustomerBooking();
+  })
+
+  $('.room_upgrade-button').on('click', function() {
+    let oldRoom = hotel.currentCustomer.findTodayBooking(hotel.today).roomNumber;
+    hotel.bookings.upgradeRoom(oldRoom, hotel.currentRoom.number, hotel.today, hotel.currentCustomer);
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+    let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
+    DOMupdates.displayBookings(hotel.currentCustomer, booking);
+    $('.room__upgrade-box').hide();
+  })
 });
 
 

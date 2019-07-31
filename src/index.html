@@ -40,6 +40,11 @@
         main <br/>
       </article>
       <article id="orders" class="panel">
+        <section class="orders__container">
+            <div class="orders__food-box">
+              <p class="orders__current-order">Order</p>
+              <button class="orders__food-button">Click to Order</button>
+            </div>
             <table class="today-menu-table">
                 <thead>
                   <tr>
@@ -85,10 +90,7 @@
                       </tbody>
                     </thead>
                   </table>
-        orders <br/>
-        orders <br/>
-        orders <br/>
-        orders <br/>
+                </section>
         </article>
         <article id="rooms" class="panel">
           <div class="rooms__container">
@@ -96,6 +98,10 @@
               <p>Book Room <span class="book__room-num"></span>?</p>
               <button class="room_booking-button">Click to Book</button>
             </div>
+            <div class="room__upgrade-box">
+                <p>Upgrade To Room <span class="book__room-num"></span>?</p>
+                <button class="room_upgrade-button">Click to Upgrade</button>
+              </div>
             <table class="available-rooms-table">
                 <thead class="available">
                   <tr>
@@ -135,6 +141,8 @@
           <p class="customer__booked-name">Name:</p>
           <p class="customer__booked-date">Date:</p>
           <p class="customer__booked-room">Room: </p>
+          <button class="customer__order-room-service">Order Room Service</button>
+          <button class="customer__upgrade-room">Upgrade Room</button>
           </div>
           <p class="today-booking">
              <button class="customer__book-room" disabled="true">Book Room</button>

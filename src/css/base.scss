@@ -194,7 +194,11 @@ table tr:nth-of-type(even) {
 .header__add-customer,
 .customer__book-room,
 .room_booking-button,
-.customer__unbook-room {
+.customer__unbook-room,
+.customer__order-room-service,
+.orders__food-button,
+.customer__upgrade-room,
+.room_upgrade-button {
   height: 50px;
   margin: 5px 0px;
   text-align: center;
@@ -215,7 +219,9 @@ table tr:nth-of-type(even) {
   margin-right: 45px;
 }
 
-.customer__unbook-room {
+.customer__unbook-room,
+.customer__order-room-service,
+.room_upgrade-button  {
   height: 70px;
 }
 
@@ -245,7 +251,9 @@ table tr:nth-of-type(even) {
 .customer__booking-box,
 .customer__fees-box,
 .room__booking-box,
-.customer__unbook-box {
+.customer__unbook-box,
+.orders__food-box,
+.room__upgrade-box {
   height: 220px;
   padding: 5px;
   margin-right: 50px;
@@ -255,6 +263,10 @@ table tr:nth-of-type(even) {
   box-shadow: 5px 5px 5px $mid-accent;
   border-radius: 10px;
   text-align: center;
+}
+
+.customer__booking-box {
+  height: 285px;
 }
 
 .customer__fees-box {
@@ -277,14 +289,16 @@ table th {
   cursor: pointer;
 }
 
-.rooms__container {
+.rooms__container,
+.orders__container {
   display: flex;
   justify-content: center;
   // align-content: flex-start;
 }
 
-.room__booking-box {
-  height: 120px;
+.room__booking-box,
+.orders__food-box {
+  height: 160px;
   margin-top: 25px;
 }
 
