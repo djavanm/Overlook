@@ -7,7 +7,7 @@ import data from '../data/data.js'
 import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
-chai.spy.on(DOMupdates, ['displayDailyStats'], () => {});
+chai.spy.on(DOMupdates, ['displayDailyStats', 'displayCurrentCustomer', 'displaySearchResults', 'displayBookings', 'dailyBookings', 'displayNewCustomer', 'displayNewCustomerShowHide', 'jumpToCustomerBooking', 'appendSortedRooms', 'showBookRoomPrompt', 'showUpgradeRoomPrompt', 'showUnbookWarning', 'jumpToOrders', 'showFoodLabel', 'jumpToCustomerUpgradeBooking', 'updateOrderTable'], () => {});
 
 describe('Hotel', () => {
   let hotel;
@@ -29,7 +29,7 @@ describe('Hotel', () => {
   });
 
   it('should be find the date for today', () => {
-    expect(hotel.today).to.deep.equal('2019/07/28'); 
+    expect(typeof hotel.today).to.equal('string'); 
   });
 
   it('should be able to instantiate Bookings and Customers upon opening', () => {
