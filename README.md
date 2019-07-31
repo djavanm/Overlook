@@ -8,7 +8,7 @@ The main objectives of this project were to properly implement ES6 classes, writ
 
 ## Screens
 ![screenshot](images/screen1.png)
-![customer screenshot](images/scree2.png)
+![customer screenshot](images/screen2.png)
 
 ## Author:
 Djavan Munroe ([Djavanm](https://github.com/djavanm))
