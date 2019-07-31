@@ -13,7 +13,6 @@ Promise.all([
   fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices').then(response => response.json()),
 ]).then(data => hotel = new Hotel(data[0].users, data[1].rooms, data[2].bookings, data[3].roomServices))
   .then(data => hotel.open())
-  .then(data => console.log('hello'));
 
 
 
@@ -55,12 +54,14 @@ $(document).ready(() => {
   }
 
   $('.search__list').on('click', '.search__customer', function() {
-    console.log(this);
     $('.header__add-customer').attr("disabled", true);
     let currentName = this.innerText;
     hotel.currentCustomer = hotel.findCustomerName(currentName);
-    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
     let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
+    if(booking) {
+      hotel.currentRoom = hotel.bookings.findRoom(booking.roomNumber);
+    }
+    DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
     DOMupdates.displayBookings(hotel.currentCustomer, booking);
   })
 

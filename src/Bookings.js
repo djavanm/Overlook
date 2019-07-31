@@ -131,7 +131,7 @@ class Bookings {
       customer.rooms = [];
       let bookedRoomNums = customer.bookings.map(booking => booking.roomNumber);
       bookedRoomNums.forEach(number => {
-        let room = this.rooms.find(room => room.Number === number);
+        let room = this.rooms.find(room => room.number === number);
         customer.rooms.push(room);
       });
     };

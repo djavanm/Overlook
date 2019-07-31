@@ -30,7 +30,6 @@ const DOMupdates = {
   },
 
   displayDailyStats(today, occupancy, serviceRevenue, roomRevenue, roomsAvailable, mostBooked, leastBooked) {
-    console.log(leastBooked);
     $('.header__date').text(`Date: ${today}`);
     $('.main__article-day').text(`Date: ${today}`);
     $('.main__article-occupancy').text(`Occupancy: ${occupancy}%`);

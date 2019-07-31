@@ -18,7 +18,7 @@ class Customer {
 
   calculateRoomCost(date) {
     if(this.bookings.find(booking => booking.date === date)) {
-      let roomNum = this.bookings.find(booking => booking.date === date).roomNumber;
+      let roomNum = parseInt(this.bookings.find(booking => booking.date === date).roomNumber);
       let costs = this.rooms.find(room => room.number === roomNum).costPerNight;
     return parseFloat(costs.toFixed(2));
     } else {
