@@ -125,7 +125,6 @@ $(document).ready(() => {
 
   $('.orders__food-button').on('click', function(){
     hotel.currentCustomer.orderRoomService(hotel.currentCustomer.currentDish, hotel.today);
-    console.log('hi')
     DOMupdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
     let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
     DOMupdates.displayBookings(hotel.currentCustomer, booking);
@@ -144,6 +143,20 @@ $(document).ready(() => {
     let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
     DOMupdates.displayBookings(hotel.currentCustomer, booking);
     $('.room__upgrade-box').hide();
+  })
+  $('.customer__search-input').on('keypress', function(e){
+    var key = e.which;
+    if(key === 13) {
+      let day = $('.customer__search-input').val();
+      let orders = hotel.bookings.findDailyRoomServiceOrders(day);
+      DOMupdates.updateOrderTable(orders);
+    }
+  })
+
+  $('.customer__search-button').on('click', function () {
+    let day = $('.customer__search-input').val();
+      let orders = hotel.bookings.findDailyRoomServiceOrders(day);
+      DOMupdates.updateOrderTable(orders);
   })
 });
 

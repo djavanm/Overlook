@@ -204,6 +204,20 @@ const DOMupdates = {
     $('#rooms').slideDown(300, function() {
       $(this).addClass('active');
     });
+  },
+  updateOrderTable(orders) {
+    $('.customer-orders-body').empty();
+    $('.customer__search-input').val('');
+    orders.forEach(order => {
+      $('.customer-orders-body').append(`
+      <tr>
+        <td>${order.userID}</td>
+        <td>${order.date}</td>
+        <td>${order.food}</td>
+        <td>${order.totalCost}</td>
+      </tr>
+      `)
+    })
   }
 }
 export default DOMupdates;

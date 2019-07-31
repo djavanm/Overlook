@@ -52,10 +52,14 @@ table tbody tr {
 
 table tr:nth-of-type(even) {
   background-color: #f3f3f3;
-  
 }
+
 .available-rooms-table th {
   min-width: 100px;
+}
+
+.customer-orders-table {
+  max-width: 400px;
 }
 .header__nav {
   border: 1px solid $mid-accent;
@@ -71,12 +75,12 @@ table tr:nth-of-type(even) {
   margin-left: 5px;
   padding: 10px;
   font-size: 1.4em;
-  
 }
+
 .header__date {
   display: inline-block;
-  // padding-left: 225px;
 }
+
 .header__title,
 .header__current-customer {
   display: inline-block;
@@ -89,6 +93,10 @@ table tr:nth-of-type(even) {
   font-size: 1.8em;
   font-weight: 700;
   min-height: 90px;
+}
+
+.customer__search-box {
+  margin-top: 25px;
 }
 
 .main__overlook {
@@ -166,12 +174,17 @@ table tr:nth-of-type(even) {
   border: 1px solid $mid-accent;
 }
 
-.header__search-input {
+.header__search-input,
+.customer__search-input {
   color: $mid-accent;
   height: 40px;
   margin-top: 0px;
   padding: 5px;
   font-size: 1em;
+}
+
+.customer__search-input {
+  width: 80%;
 }
 
 .header__customer--name {
@@ -198,7 +211,8 @@ table tr:nth-of-type(even) {
 .customer__order-room-service,
 .orders__food-button,
 .customer__upgrade-room,
-.room_upgrade-button {
+.room_upgrade-button,
+.customer__search-button {
   height: 50px;
   margin: 5px 0px;
   text-align: center;
@@ -253,7 +267,8 @@ table tr:nth-of-type(even) {
 .room__booking-box,
 .customer__unbook-box,
 .orders__food-box,
-.room__upgrade-box {
+.room__upgrade-box,
+.customer__search-box {
   height: 220px;
   padding: 5px;
   margin-right: 50px;
@@ -292,8 +307,12 @@ table th {
 .rooms__container,
 .orders__container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   // align-content: flex-start;
+}
+
+.customer__search-input {
+ text-align: center;
 }
 
 .room__booking-box,

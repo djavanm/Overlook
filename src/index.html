@@ -32,12 +32,6 @@
         <p class="main__article-service-charges">Hotel Charges</p>
         <p class="main__article-room-charges">Hotel Bookings </p>
         <p class="main__article-rooms-available">Available Rooms </p>
-        main<br/>
-        main <br/>
-        main <br/>
-        main <br/>
-        main <br/>
-        main <br/>
       </article>
       <article id="orders" class="panel">
         <section class="orders__container">
@@ -81,7 +75,7 @@
                         <th colspan="4">Customer Orders</th>
                       </tr>
                     <tr>
-                      <th>Customer Name</th>
+                      <th>Customer ID</th>
                       <th>Order Date</th>
                       <th>Dish</th>
                       <th>Cost</th>
@@ -90,6 +84,11 @@
                       </tbody>
                     </thead>
                   </table>
+                  <div class="customer__search-box">
+                    <p>Search Customer Orders</p>
+                    <input class="customer__search-input" placeholder="YYYY/MM/DD">
+                    <button class="customer__search-button">Search</button>
+                  </div>
                 </section>
         </article>
         <article id="rooms" class="panel">
@@ -99,9 +98,9 @@
               <button class="room_booking-button">Click to Book</button>
             </div>
             <div class="room__upgrade-box">
-                <p>Upgrade To Room <span class="book__room-num"></span>?</p>
-                <button class="room_upgrade-button">Click to Upgrade</button>
-              </div>
+              <p>Upgrade To Room <span class="book__room-num"></span>?</p>
+              <button class="room_upgrade-button">Click to Upgrade</button>
+            </div>
             <table class="available-rooms-table">
                 <thead class="available">
                   <tr>
